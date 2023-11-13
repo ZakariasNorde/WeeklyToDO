@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Zakarias\\Documents\\Egna projekt\\ToDoCalender\\ToDoCalender\\ToDoCalender.csproj",
+      "projectUniqueName": "C:\\GitHub\\C# VS\\WeeklyToDO\\ToDoCalender\\ToDoCalender\\ToDoCalender.csproj",
       "projectName": "ToDoCalender",
-      "projectPath": "C:\\Users\\Zakarias\\Documents\\Egna projekt\\ToDoCalender\\ToDoCalender\\ToDoCalender.csproj",
+      "projectPath": "C:\\GitHub\\C# VS\\WeeklyToDO\\ToDoCalender\\ToDoCalender\\ToDoCalender.csproj",
       "packagesPath": "C:\\Users\\Zakarias\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Zakarias\\Documents\\Egna projekt\\ToDoCalender\\ToDoCalender\\obj\\",
+      "outputPath": "C:\\GitHub\\C# VS\\WeeklyToDO\\ToDoCalender\\ToDoCalender\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Zakarias\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
