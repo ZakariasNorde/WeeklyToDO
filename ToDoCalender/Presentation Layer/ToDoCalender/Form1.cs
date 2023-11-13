@@ -43,5 +43,12 @@ namespace ToDoCalender
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ListViewItem ettItem = new ListViewItem("HEEEEJ");
+            ettItem.Checked = true;
+            listView1.Items.Add(ettItem);
+        }
     }
 }

@@ -56,6 +56,8 @@
             pictureBox11 = new PictureBox();
             btnAdd = new Button();
             btnChange = new Button();
+            button1 = new Button();
+            Todo = new ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -248,65 +250,80 @@
             // listView1
             // 
             listView1.BackColor = SystemColors.ScrollBar;
+            listView1.CheckBoxes = true;
+            listView1.Columns.AddRange(new ColumnHeader[] { Todo });
             listView1.Location = new Point(16, 84);
             listView1.Name = "listView1";
             listView1.Size = new Size(137, 357);
             listView1.TabIndex = 18;
             listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
             // 
             // listView2
             // 
             listView2.BackColor = SystemColors.ScrollBar;
+            listView2.CheckBoxes = true;
             listView2.Location = new Point(174, 84);
             listView2.Name = "listView2";
             listView2.Size = new Size(137, 357);
             listView2.TabIndex = 19;
             listView2.UseCompatibleStateImageBehavior = false;
+            listView2.View = View.Details;
             // 
             // listView3
             // 
             listView3.BackColor = SystemColors.ScrollBar;
+            listView3.CheckBoxes = true;
             listView3.Location = new Point(336, 84);
             listView3.Name = "listView3";
             listView3.Size = new Size(137, 357);
             listView3.TabIndex = 20;
             listView3.UseCompatibleStateImageBehavior = false;
+            listView3.View = View.Details;
             // 
             // listView4
             // 
             listView4.BackColor = SystemColors.ScrollBar;
+            listView4.CheckBoxes = true;
             listView4.Location = new Point(495, 86);
             listView4.Name = "listView4";
             listView4.Size = new Size(137, 355);
             listView4.TabIndex = 21;
             listView4.UseCompatibleStateImageBehavior = false;
+            listView4.View = View.Details;
             // 
             // listView5
             // 
             listView5.BackColor = SystemColors.ScrollBar;
+            listView5.CheckBoxes = true;
             listView5.Location = new Point(654, 84);
             listView5.Name = "listView5";
             listView5.Size = new Size(137, 357);
             listView5.TabIndex = 22;
             listView5.UseCompatibleStateImageBehavior = false;
+            listView5.View = View.Details;
             // 
             // listView6
             // 
             listView6.BackColor = SystemColors.ScrollBar;
+            listView6.CheckBoxes = true;
             listView6.Location = new Point(813, 86);
             listView6.Name = "listView6";
             listView6.Size = new Size(137, 355);
             listView6.TabIndex = 23;
             listView6.UseCompatibleStateImageBehavior = false;
+            listView6.View = View.Details;
             // 
             // listView7
             // 
             listView7.BackColor = SystemColors.ScrollBar;
+            listView7.CheckBoxes = true;
             listView7.Location = new Point(972, 84);
             listView7.Name = "listView7";
             listView7.Size = new Size(137, 357);
             listView7.TabIndex = 24;
             listView7.UseCompatibleStateImageBehavior = false;
+            listView7.View = View.Details;
             // 
             // pictureBox11
             // 
@@ -335,12 +352,28 @@
             btnChange.Text = "Change or Delete Task";
             btnChange.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            button1.Location = new Point(881, 477);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 28;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // Todo
+            // 
+            Todo.Text = "To do";
+            Todo.Width = 130;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(1136, 523);
+            Controls.Add(button1);
             Controls.Add(btnChange);
             Controls.Add(btnAdd);
             Controls.Add(pictureBox11);
@@ -415,5 +448,7 @@
         private PictureBox pictureBox11;
         private Button btnAdd;
         private Button btnChange;
+        private Button button1;
+        private ColumnHeader Todo;
     }
 }
