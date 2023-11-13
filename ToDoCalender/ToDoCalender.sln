@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoCalender", "ToDoCalender\ToDoCalender.csproj", "{DDBC2EA4-451C-437C-BE6A-0F0DE2983E18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoCalender", "ToDoCalender\ToDoCalender.csproj", "{DDBC2EA4-451C-437C-BE6A-0F0DE2983E18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddForm", "AddForm\AddForm.csproj", "{3A2FDFCB-0E5E-43BC-802B-17D3D3460865}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DDBC2EA4-451C-437C-BE6A-0F0DE2983E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDBC2EA4-451C-437C-BE6A-0F0DE2983E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDBC2EA4-451C-437C-BE6A-0F0DE2983E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A2FDFCB-0E5E-43BC-802B-17D3D3460865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A2FDFCB-0E5E-43BC-802B-17D3D3460865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A2FDFCB-0E5E-43BC-802B-17D3D3460865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A2FDFCB-0E5E-43BC-802B-17D3D3460865}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
