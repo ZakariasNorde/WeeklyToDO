@@ -55,9 +55,8 @@
             listView6 = new ListView();
             listView7 = new ListView();
             pictureBox11 = new PictureBox();
-            btnAdd = new Button();
             btnChange = new Button();
-            button1 = new Button();
+            btnAddTask = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -339,15 +338,6 @@
             pictureBox11.TabIndex = 25;
             pictureBox11.TabStop = false;
             // 
-            // btnAdd
-            // 
-            btnAdd.Location = new Point(361, 482);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(117, 29);
-            btnAdd.TabIndex = 26;
-            btnAdd.Text = "Add new task";
-            btnAdd.UseVisualStyleBackColor = true;
-            // 
             // btnChange
             // 
             btnChange.Location = new Point(554, 482);
@@ -357,25 +347,25 @@
             btnChange.Text = "Change or Delete Task";
             btnChange.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnAddTask
             // 
-            button1.Location = new Point(881, 477);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 28;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnAddTask.BackColor = Color.Orange;
+            btnAddTask.Location = new Point(336, 482);
+            btnAddTask.Name = "btnAddTask";
+            btnAddTask.Size = new Size(122, 29);
+            btnAddTask.TabIndex = 28;
+            btnAddTask.Text = "Add new Task";
+            btnAddTask.UseVisualStyleBackColor = false;
+            btnAddTask.Click += btnAddTask_Click;
             // 
-            // Form1
+            // ToDoCalenderWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(1136, 523);
-            Controls.Add(button1);
+            Controls.Add(btnAddTask);
             Controls.Add(btnChange);
-            Controls.Add(btnAdd);
             Controls.Add(pictureBox11);
             Controls.Add(listView7);
             Controls.Add(listView6);
@@ -402,7 +392,7 @@
             Controls.Add(lblFriday);
             Controls.Add(lblSunday);
             Controls.Add(lblSaturday);
-            Name = "Form1";
+            Name = "ToDoCalenderWindow";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -446,9 +436,8 @@
         private ListView listView6;
         private ListView listView7;
         private PictureBox pictureBox11;
-        private Button btnAdd;
         private Button btnChange;
-        private Button button1;
         private ColumnHeader Todo;
+        private Button btnAddTask;
     }
 }

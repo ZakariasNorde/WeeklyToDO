@@ -35,7 +35,7 @@
             lblTaskDescription = new Label();
             cmbRoutine = new ComboBox();
             btnClearTask = new Button();
-            listView1 = new ListView();
+            listViewDates = new ListView();
             columnHeader1 = new ColumnHeader();
             btnAdd = new Button();
             SuspendLayout();
@@ -50,7 +50,8 @@
             // lblTaskName
             // 
             lblTaskName.AutoSize = true;
-            lblTaskName.Location = new Point(73, 52);
+            lblTaskName.BackColor = SystemColors.ActiveCaption;
+            lblTaskName.Location = new Point(73, 49);
             lblTaskName.Name = "lblTaskName";
             lblTaskName.Size = new Size(77, 20);
             lblTaskName.TabIndex = 1;
@@ -63,6 +64,7 @@
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(278, 27);
             dateTimePicker1.TabIndex = 2;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // textBox2
             // 
@@ -76,6 +78,7 @@
             // lblTaskDescription
             // 
             lblTaskDescription.AutoSize = true;
+            lblTaskDescription.BackColor = SystemColors.ActiveCaption;
             lblTaskDescription.Location = new Point(73, 157);
             lblTaskDescription.Name = "lblTaskDescription";
             lblTaskDescription.Size = new Size(116, 20);
@@ -102,15 +105,15 @@
             btnClearTask.Text = "Clear Task";
             btnClearTask.UseVisualStyleBackColor = false;
             // 
-            // listView1
+            // listViewDates
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
-            listView1.Location = new Point(293, 157);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(250, 199);
-            listView1.TabIndex = 7;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            listViewDates.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
+            listViewDates.Location = new Point(293, 157);
+            listViewDates.Name = "listViewDates";
+            listViewDates.Size = new Size(278, 199);
+            listViewDates.TabIndex = 7;
+            listViewDates.UseCompatibleStateImageBehavior = false;
+            listViewDates.View = View.Details;
             // 
             // columnHeader1
             // 
@@ -120,21 +123,21 @@
             // btnAdd
             // 
             btnAdd.BackColor = Color.Orange;
-            btnAdd.Location = new Point(612, 173);
+            btnAdd.Location = new Point(614, 157);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(134, 54);
             btnAdd.TabIndex = 8;
             btnAdd.Text = "Add Task to all chosen dates";
             btnAdd.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // AddFormWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(800, 450);
             Controls.Add(btnAdd);
-            Controls.Add(listView1);
+            Controls.Add(listViewDates);
             Controls.Add(btnClearTask);
             Controls.Add(cmbRoutine);
             Controls.Add(lblTaskDescription);
@@ -142,7 +145,7 @@
             Controls.Add(dateTimePicker1);
             Controls.Add(lblTaskName);
             Controls.Add(textBox1);
-            Name = "Form1";
+            Name = "AddFormWindow";
             Text = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);
@@ -158,7 +161,7 @@
         private Label lblTaskDescription;
         private ComboBox cmbRoutine;
         private Button btnClearTask;
-        private ListView listView1;
+        private ListView listViewDates;
         private ColumnHeader columnHeader1;
         private Button btnAdd;
     }
