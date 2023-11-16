@@ -1,6 +1,6 @@
 ﻿namespace ToDoCalender
 {
-    partial class Form1
+    partial class ToDoCalenderWindow
     {
         /// <summary>
         ///  Required designer variable.
@@ -47,6 +47,7 @@
             pictureBox9 = new PictureBox();
             pictureBox10 = new PictureBox();
             listView1 = new ListView();
+            Todo = new ColumnHeader();
             listView2 = new ListView();
             listView3 = new ListView();
             listView4 = new ListView();
@@ -57,7 +58,6 @@
             btnAdd = new Button();
             btnChange = new Button();
             button1 = new Button();
-            Todo = new ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -252,12 +252,17 @@
             listView1.BackColor = SystemColors.ScrollBar;
             listView1.CheckBoxes = true;
             listView1.Columns.AddRange(new ColumnHeader[] { Todo });
-            listView1.Location = new Point(16, 84);
+            listView1.Location = new Point(16, 86);
             listView1.Name = "listView1";
             listView1.Size = new Size(137, 357);
             listView1.TabIndex = 18;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
+            // 
+            // Todo
+            // 
+            Todo.Text = "To do";
+            Todo.Width = 130;
             // 
             // listView2
             // 
@@ -361,11 +366,6 @@
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
-            // 
-            // Todo
-            // 
-            Todo.Text = "To do";
-            Todo.Width = 130;
             // 
             // Form1
             // 

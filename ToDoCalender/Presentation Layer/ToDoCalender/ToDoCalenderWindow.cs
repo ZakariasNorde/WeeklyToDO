@@ -1,10 +1,10 @@
 using System.Globalization;
-
+using AddForm;
 namespace ToDoCalender
 {
-    public partial class Form1 : Form
+    public partial class ToDoCalenderWindow : Form
     {
-        public Form1()
+        public ToDoCalenderWindow()
         {
             InitializeComponent();
             lblWeek.Text = $"Week {getCurrentWeek()}";
@@ -47,6 +47,17 @@ namespace ToDoCalender
         private void button1_Click(object sender, EventArgs e)
         {
             ListViewItem ettItem = new ListViewItem("HEEEEJ");
+            ettItem.Checked = true;
+            listView1.Items.Add(ettItem);
+        }
+
+
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddFormWindow addWindow = new AddFormWindow();
+            addWindow.Show();
+            ListViewItem ettItem = new ListViewItem("btnadd");
             ettItem.Checked = true;
             listView1.Items.Add(ettItem);
         }
