@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AddForm\AddForm.csproj" />
+    <ProjectReference Include="..\..\BLLToDO\BLLToDO.csproj" />
+    <ProjectReference Include="..\..\Models\Models\Models.csproj" />
   </ItemGroup>
 
 </Project>

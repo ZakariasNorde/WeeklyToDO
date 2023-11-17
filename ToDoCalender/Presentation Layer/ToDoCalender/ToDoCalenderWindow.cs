@@ -1,18 +1,35 @@
 using System.Globalization;
-using AddForm;
+using Models;
+using System.Timers;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.ComponentModel.Design;
+
 namespace ToDoCalender
 {
     public partial class ToDoCalenderWindow : Form
     {
+        public string currentDay;
+        private System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
         public ToDoCalenderWindow()
         {
             InitializeComponent();
-            lblWeek.Text = $"Week {getCurrentWeek()}";
-
+            myTimer.Interval = 1000;
+            myTimer.Tick += myTimerTick;
+            myTimer.Start();
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void myTimerTick(object sender, EventArgs e)
+        {
+            string currentTime = DateTime.Now.ToString();
+            string currentDay = getCurrentDay();
+            lblCurrentTime.Text = $"Week {getCurrentWeek()} {currentDay} {currentTime}";
 
         }
 
@@ -26,13 +43,6 @@ namespace ToDoCalender
 
         }
 
-        private int getCurrentWeek()
-        {
-            DateTime now = DateTime.Now;
-            CultureInfo cultureInfo = CultureInfo.CurrentCulture;
-            Calendar calendar = cultureInfo.Calendar;
-            return calendar.GetWeekOfYear(now, CalendarWeekRule.FirstFullWeek, DayOfWeek.Monday);
-        }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
@@ -55,11 +65,25 @@ namespace ToDoCalender
 
         private void btnAddTask_Click(object sender, EventArgs e)
         {
-            AddFormWindow addWindow = new AddFormWindow();
+            AddForm addWindow = new AddForm();
             addWindow.Show();
             ListViewItem ettItem = new ListViewItem("btnadd");
             ettItem.Checked = true;
             listView1.Items.Add(ettItem);
+        }
+
+        private int getCurrentWeek()
+        {
+            DateTime now = DateTime.Now;
+            CultureInfo cultureInfo = CultureInfo.CurrentCulture;
+            Calendar calendar = cultureInfo.Calendar;
+            return calendar.GetWeekOfYear(now, CalendarWeekRule.FirstFullWeek, DayOfWeek.Monday);
+        }
+
+        private string getCurrentDay()
+        {
+            DateTime today = DateTime.Today;
+            return today.DayOfWeek.ToString();
         }
     }
 }

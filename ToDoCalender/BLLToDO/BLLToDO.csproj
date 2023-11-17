@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DALToDo\DALToDo.csproj" />
+    <ProjectReference Include="..\Models\Models\Models.csproj" />
+  </ItemGroup>
+
 </Project>

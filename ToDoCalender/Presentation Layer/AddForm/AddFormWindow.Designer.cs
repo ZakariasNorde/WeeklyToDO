@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            txtTaskName = new TextBox();
             lblTaskName = new Label();
             dateTimePicker1 = new DateTimePicker();
-            textBox2 = new TextBox();
+            txtDescription = new TextBox();
             lblTaskDescription = new Label();
             cmbRoutine = new ComboBox();
             btnClearTask = new Button();
@@ -40,12 +40,12 @@
             btnAdd = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // txtTaskName
             // 
-            textBox1.Location = new Point(73, 95);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 0;
+            txtTaskName.Location = new Point(73, 95);
+            txtTaskName.Name = "txtTaskName";
+            txtTaskName.Size = new Size(125, 27);
+            txtTaskName.TabIndex = 0;
             // 
             // lblTaskName
             // 
@@ -66,14 +66,14 @@
             dateTimePicker1.TabIndex = 2;
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
-            // textBox2
+            // txtDescription
             // 
-            textBox2.Location = new Point(73, 197);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.ScrollBars = ScrollBars.Vertical;
-            textBox2.Size = new Size(154, 159);
-            textBox2.TabIndex = 3;
+            txtDescription.Location = new Point(73, 197);
+            txtDescription.Multiline = true;
+            txtDescription.Name = "txtDescription";
+            txtDescription.ScrollBars = ScrollBars.Vertical;
+            txtDescription.Size = new Size(154, 159);
+            txtDescription.TabIndex = 3;
             // 
             // lblTaskDescription
             // 
@@ -94,6 +94,7 @@
             cmbRoutine.Size = new Size(278, 28);
             cmbRoutine.TabIndex = 5;
             cmbRoutine.Text = "Choose task type";
+            cmbRoutine.SelectedIndexChanged += cmbRoutine_SelectedIndexChanged;
             // 
             // btnClearTask
             // 
@@ -129,6 +130,7 @@
             btnAdd.TabIndex = 8;
             btnAdd.Text = "Add Task to all chosen dates";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // AddFormWindow
             // 
@@ -141,10 +143,10 @@
             Controls.Add(btnClearTask);
             Controls.Add(cmbRoutine);
             Controls.Add(lblTaskDescription);
-            Controls.Add(textBox2);
+            Controls.Add(txtDescription);
             Controls.Add(dateTimePicker1);
             Controls.Add(lblTaskName);
-            Controls.Add(textBox1);
+            Controls.Add(txtTaskName);
             Name = "AddFormWindow";
             Text = "Form1";
             Load += Form1_Load;
@@ -154,10 +156,10 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox txtTaskName;
         private Label lblTaskName;
         private DateTimePicker dateTimePicker1;
-        private TextBox textBox2;
+        private TextBox txtDescription;
         private Label lblTaskDescription;
         private ComboBox cmbRoutine;
         private Button btnClearTask;

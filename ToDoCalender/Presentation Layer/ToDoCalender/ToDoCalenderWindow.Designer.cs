@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblWeek = new Label();
+            lblCurrentTime = new Label();
             lblSunday = new Label();
             lblTuesday = new Label();
             lblSaturday = new Label();
@@ -47,11 +47,10 @@
             pictureBox9 = new PictureBox();
             pictureBox10 = new PictureBox();
             listView1 = new ListView();
-            Todo = new ColumnHeader();
             listView2 = new ListView();
             listView3 = new ListView();
             listView4 = new ListView();
-            listView5 = new ListView();
+            listViewFriday = new ListView();
             listView6 = new ListView();
             listView7 = new ListView();
             pictureBox11 = new PictureBox();
@@ -70,15 +69,15 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
             SuspendLayout();
             // 
-            // lblWeek
+            // lblCurrentTime
             // 
-            lblWeek.AutoSize = true;
-            lblWeek.BackColor = SystemColors.Highlight;
-            lblWeek.Location = new Point(529, 9);
-            lblWeek.Name = "lblWeek";
-            lblWeek.Size = new Size(72, 20);
-            lblWeek.TabIndex = 1;
-            lblWeek.Text = "Week.........";
+            lblCurrentTime.AutoSize = true;
+            lblCurrentTime.BackColor = SystemColors.Highlight;
+            lblCurrentTime.Location = new Point(495, 9);
+            lblCurrentTime.Name = "lblCurrentTime";
+            lblCurrentTime.Size = new Size(72, 20);
+            lblCurrentTime.TabIndex = 1;
+            lblCurrentTime.Text = "Week.........";
             // 
             // lblSunday
             // 
@@ -250,18 +249,12 @@
             // 
             listView1.BackColor = SystemColors.ScrollBar;
             listView1.CheckBoxes = true;
-            listView1.Columns.AddRange(new ColumnHeader[] { Todo });
             listView1.Location = new Point(16, 86);
             listView1.Name = "listView1";
             listView1.Size = new Size(137, 357);
             listView1.TabIndex = 18;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
-            // 
-            // Todo
-            // 
-            Todo.Text = "To do";
-            Todo.Width = 130;
             // 
             // listView2
             // 
@@ -296,16 +289,16 @@
             listView4.UseCompatibleStateImageBehavior = false;
             listView4.View = View.Details;
             // 
-            // listView5
+            // listViewFriday
             // 
-            listView5.BackColor = SystemColors.ScrollBar;
-            listView5.CheckBoxes = true;
-            listView5.Location = new Point(654, 84);
-            listView5.Name = "listView5";
-            listView5.Size = new Size(137, 357);
-            listView5.TabIndex = 22;
-            listView5.UseCompatibleStateImageBehavior = false;
-            listView5.View = View.Details;
+            listViewFriday.BackColor = SystemColors.ScrollBar;
+            listViewFriday.CheckBoxes = true;
+            listViewFriday.Location = new Point(654, 84);
+            listViewFriday.Name = "listViewFriday";
+            listViewFriday.Size = new Size(137, 357);
+            listViewFriday.TabIndex = 22;
+            listViewFriday.UseCompatibleStateImageBehavior = false;
+            listViewFriday.View = View.Details;
             // 
             // listView6
             // 
@@ -369,7 +362,7 @@
             Controls.Add(pictureBox11);
             Controls.Add(listView7);
             Controls.Add(listView6);
-            Controls.Add(listView5);
+            Controls.Add(listViewFriday);
             Controls.Add(listView4);
             Controls.Add(listView3);
             Controls.Add(listView2);
@@ -384,7 +377,7 @@
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(lblWeek);
+            Controls.Add(lblCurrentTime);
             Controls.Add(lblTuesday);
             Controls.Add(lblWednesday);
             Controls.Add(lblMonday);
@@ -410,7 +403,7 @@
         }
 
         #endregion
-        private Label lblWeek;
+        private Label lblCurrentTime;
         private Label lblSunday;
         private Label lblTuesday;
         private Label lblSaturday;
@@ -432,12 +425,11 @@
         private ListView listView2;
         private ListView listView3;
         private ListView listView4;
-        private ListView listView5;
+        private ListView listViewFriday;
         private ListView listView6;
         private ListView listView7;
         private PictureBox pictureBox11;
         private Button btnChange;
-        private ColumnHeader Todo;
         private Button btnAddTask;
     }
 }
