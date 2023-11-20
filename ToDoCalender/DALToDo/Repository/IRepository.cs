@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace DALToDo.Repository
 {
-    internal interface IRepository
+    internal interface IRepository<T>
     {
+        void add(T anObject);
+        void remove(T anObject);
+        List<T> getAll(); 
+        //void updateList(List<T> updatedList);
+        void saveChanges();
+
     }
 }

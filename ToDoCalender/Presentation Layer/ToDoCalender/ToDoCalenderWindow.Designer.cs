@@ -46,16 +46,23 @@
             pictureBox8 = new PictureBox();
             pictureBox9 = new PictureBox();
             pictureBox10 = new PictureBox();
-            listView1 = new ListView();
-            listView2 = new ListView();
-            listView3 = new ListView();
-            listView4 = new ListView();
+            listViewMonday = new ListView();
+            columnHeader1 = new ColumnHeader();
+            listViewTuesday = new ListView();
+            listViewWednesday = new ListView();
+            listViewThursday = new ListView();
             listViewFriday = new ListView();
-            listView6 = new ListView();
-            listView7 = new ListView();
+            listViewSaturday = new ListView();
+            listViewSunday = new ListView();
             pictureBox11 = new PictureBox();
             btnChange = new Button();
             btnAddTask = new Button();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            columnHeader5 = new ColumnHeader();
+            columnHeader6 = new ColumnHeader();
+            columnHeader7 = new ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -245,54 +252,64 @@
             pictureBox10.TabIndex = 17;
             pictureBox10.TabStop = false;
             // 
-            // listView1
+            // listViewMonday
             // 
-            listView1.BackColor = SystemColors.ScrollBar;
-            listView1.CheckBoxes = true;
-            listView1.Location = new Point(16, 86);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(137, 357);
-            listView1.TabIndex = 18;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            listViewMonday.BackColor = SystemColors.ScrollBar;
+            listViewMonday.CheckBoxes = true;
+            listViewMonday.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
+            listViewMonday.Location = new Point(16, 86);
+            listViewMonday.Name = "listViewMonday";
+            listViewMonday.Size = new Size(137, 357);
+            listViewMonday.TabIndex = 18;
+            listViewMonday.UseCompatibleStateImageBehavior = false;
+            listViewMonday.View = View.Details;
             // 
-            // listView2
+            // columnHeader1
             // 
-            listView2.BackColor = SystemColors.ScrollBar;
-            listView2.CheckBoxes = true;
-            listView2.Location = new Point(174, 84);
-            listView2.Name = "listView2";
-            listView2.Size = new Size(137, 357);
-            listView2.TabIndex = 19;
-            listView2.UseCompatibleStateImageBehavior = false;
-            listView2.View = View.Details;
+            columnHeader1.Text = "To do";
+            columnHeader1.Width = 250;
             // 
-            // listView3
+            // listViewTuesday
             // 
-            listView3.BackColor = SystemColors.ScrollBar;
-            listView3.CheckBoxes = true;
-            listView3.Location = new Point(336, 84);
-            listView3.Name = "listView3";
-            listView3.Size = new Size(137, 357);
-            listView3.TabIndex = 20;
-            listView3.UseCompatibleStateImageBehavior = false;
-            listView3.View = View.Details;
+            listViewTuesday.BackColor = SystemColors.ScrollBar;
+            listViewTuesday.CheckBoxes = true;
+            listViewTuesday.Columns.AddRange(new ColumnHeader[] { columnHeader2 });
+            listViewTuesday.Location = new Point(174, 84);
+            listViewTuesday.Name = "listViewTuesday";
+            listViewTuesday.Size = new Size(137, 357);
+            listViewTuesday.TabIndex = 19;
+            listViewTuesday.UseCompatibleStateImageBehavior = false;
+            listViewTuesday.View = View.Details;
             // 
-            // listView4
+            // listViewWednesday
             // 
-            listView4.BackColor = SystemColors.ScrollBar;
-            listView4.CheckBoxes = true;
-            listView4.Location = new Point(495, 86);
-            listView4.Name = "listView4";
-            listView4.Size = new Size(137, 355);
-            listView4.TabIndex = 21;
-            listView4.UseCompatibleStateImageBehavior = false;
-            listView4.View = View.Details;
+            listViewWednesday.BackColor = SystemColors.ScrollBar;
+            listViewWednesday.CheckBoxes = true;
+            listViewWednesday.Columns.AddRange(new ColumnHeader[] { columnHeader3 });
+            listViewWednesday.Location = new Point(336, 84);
+            listViewWednesday.Name = "listViewWednesday";
+            listViewWednesday.Size = new Size(137, 357);
+            listViewWednesday.TabIndex = 20;
+            listViewWednesday.UseCompatibleStateImageBehavior = false;
+            listViewWednesday.View = View.Details;
+            // 
+            // listViewThursday
+            // 
+            listViewThursday.BackColor = SystemColors.ScrollBar;
+            listViewThursday.CheckBoxes = true;
+            listViewThursday.Columns.AddRange(new ColumnHeader[] { columnHeader4 });
+            listViewThursday.Location = new Point(495, 86);
+            listViewThursday.Name = "listViewThursday";
+            listViewThursday.Size = new Size(137, 355);
+            listViewThursday.TabIndex = 21;
+            listViewThursday.UseCompatibleStateImageBehavior = false;
+            listViewThursday.View = View.Details;
             // 
             // listViewFriday
             // 
             listViewFriday.BackColor = SystemColors.ScrollBar;
             listViewFriday.CheckBoxes = true;
+            listViewFriday.Columns.AddRange(new ColumnHeader[] { columnHeader5 });
             listViewFriday.Location = new Point(654, 84);
             listViewFriday.Name = "listViewFriday";
             listViewFriday.Size = new Size(137, 357);
@@ -300,27 +317,29 @@
             listViewFriday.UseCompatibleStateImageBehavior = false;
             listViewFriday.View = View.Details;
             // 
-            // listView6
+            // listViewSaturday
             // 
-            listView6.BackColor = SystemColors.ScrollBar;
-            listView6.CheckBoxes = true;
-            listView6.Location = new Point(813, 86);
-            listView6.Name = "listView6";
-            listView6.Size = new Size(137, 355);
-            listView6.TabIndex = 23;
-            listView6.UseCompatibleStateImageBehavior = false;
-            listView6.View = View.Details;
+            listViewSaturday.BackColor = SystemColors.ScrollBar;
+            listViewSaturday.CheckBoxes = true;
+            listViewSaturday.Columns.AddRange(new ColumnHeader[] { columnHeader6 });
+            listViewSaturday.Location = new Point(813, 86);
+            listViewSaturday.Name = "listViewSaturday";
+            listViewSaturday.Size = new Size(137, 355);
+            listViewSaturday.TabIndex = 23;
+            listViewSaturday.UseCompatibleStateImageBehavior = false;
+            listViewSaturday.View = View.Details;
             // 
-            // listView7
+            // listViewSunday
             // 
-            listView7.BackColor = SystemColors.ScrollBar;
-            listView7.CheckBoxes = true;
-            listView7.Location = new Point(972, 84);
-            listView7.Name = "listView7";
-            listView7.Size = new Size(137, 357);
-            listView7.TabIndex = 24;
-            listView7.UseCompatibleStateImageBehavior = false;
-            listView7.View = View.Details;
+            listViewSunday.BackColor = SystemColors.ScrollBar;
+            listViewSunday.CheckBoxes = true;
+            listViewSunday.Columns.AddRange(new ColumnHeader[] { columnHeader7 });
+            listViewSunday.Location = new Point(972, 84);
+            listViewSunday.Name = "listViewSunday";
+            listViewSunday.Size = new Size(137, 357);
+            listViewSunday.TabIndex = 24;
+            listViewSunday.UseCompatibleStateImageBehavior = false;
+            listViewSunday.View = View.Details;
             // 
             // pictureBox11
             // 
@@ -351,6 +370,36 @@
             btnAddTask.UseVisualStyleBackColor = false;
             btnAddTask.Click += btnAddTask_Click;
             // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "To do";
+            columnHeader2.Width = 250;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "To do";
+            columnHeader3.Width = 250;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "To do";
+            columnHeader4.Width = 250;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "To do";
+            columnHeader5.Width = 250;
+            // 
+            // columnHeader6
+            // 
+            columnHeader6.Text = "To do";
+            columnHeader6.Width = 250;
+            // 
+            // columnHeader7
+            // 
+            columnHeader7.Text = "To do";
+            columnHeader7.Width = 250;
+            // 
             // ToDoCalenderWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -360,13 +409,13 @@
             Controls.Add(btnAddTask);
             Controls.Add(btnChange);
             Controls.Add(pictureBox11);
-            Controls.Add(listView7);
-            Controls.Add(listView6);
+            Controls.Add(listViewSunday);
+            Controls.Add(listViewSaturday);
             Controls.Add(listViewFriday);
-            Controls.Add(listView4);
-            Controls.Add(listView3);
-            Controls.Add(listView2);
-            Controls.Add(listView1);
+            Controls.Add(listViewThursday);
+            Controls.Add(listViewWednesday);
+            Controls.Add(listViewTuesday);
+            Controls.Add(listViewMonday);
             Controls.Add(pictureBox10);
             Controls.Add(pictureBox9);
             Controls.Add(pictureBox8);
@@ -421,15 +470,22 @@
         private PictureBox pictureBox8;
         private PictureBox pictureBox9;
         private PictureBox pictureBox10;
-        private ListView listView1;
-        private ListView listView2;
-        private ListView listView3;
-        private ListView listView4;
+        private ListView listViewMonday;
+        private ListView listViewTuesday;
+        private ListView listViewWednesday;
+        private ListView listViewThursday;
         private ListView listViewFriday;
-        private ListView listView6;
-        private ListView listView7;
+        private ListView listViewSaturday;
+        private ListView listViewSunday;
         private PictureBox pictureBox11;
         private Button btnChange;
         private Button btnAddTask;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
+        private ColumnHeader columnHeader6;
+        private ColumnHeader columnHeader7;
     }
 }

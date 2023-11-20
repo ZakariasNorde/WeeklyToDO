@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using AddForm;
 using BLLToDO;
 using Models;
@@ -17,10 +18,12 @@ namespace ToDoCalender
     public partial class AddForm : Form
     {
         private TaskManager myTaskManager;
-        public AddForm()
+        public ToDoCalenderWindow calenderWindow;
+        public AddForm(object sender)
         {
             InitializeComponent();
             myTaskManager = new TaskManager();
+            calenderWindow = (ToDoCalenderWindow)sender;
         }
 
         public bool checkRoutine()
@@ -41,13 +44,7 @@ namespace ToDoCalender
             return routine;
         }
 
-        public void addTaskToView(TaskToDo aTask)
-        {
-            ListViewItem anItem = new ListViewItem(aTask.Title);
-            anItem.Tag = aTask;
-
-        }
-
+        
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //lägg till validering så att user har valt minst 1 datum först
@@ -73,18 +70,43 @@ namespace ToDoCalender
                         {
                             daysAsString.Add(anItem.Text);
                         }
+
                         TaskToDo createdTask = myTaskManager.createTask(taskName, taskDesc, daysAsString);
-                        addTaskToView(createdTask);
+                        calenderWindow.addTask(createdTask);
 
                     }
 
                     else
                     {
+                        List<DateTime> dates = new List<DateTime>();
+                        foreach (ListViewItem anItem in listViewDates.Items)
+                        {
+                            string[] dateSplits = anItem.Text.Split("-");
+                            List<int> datesSplitsAsInt = new List<int>();    
+                            
+                            foreach (string aPart in dateSplits)
+                            {
+                                int intPart = int.Parse(aPart);
+                                datesSplitsAsInt.Add(intPart);
+                            }
+
+                            DateTime aDate = new DateTime(datesSplitsAsInt[0], datesSplitsAsInt[1], datesSplitsAsInt[2]);
+                            dates.Add(aDate);
+                        }
+
+                        TaskToDo createdTask = myTaskManager.createTask(taskName, taskDesc, dates);
+                        calenderWindow.addTask(createdTask);
 
                     }
 
+                    
+
 
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please fill all textboxes first");
             }
         }
 
@@ -100,7 +122,7 @@ namespace ToDoCalender
             else
             {
                 DateTime chosenDate = dateTimePicker1.Value;
-                string dateString = chosenDate.ToString();
+                string dateString = chosenDate.ToString("yyyy-MM-dd");
                 ListViewItem dateItem = new ListViewItem(dateString);
                 listViewDates.Items.Add(dateItem);
             }
@@ -108,6 +130,13 @@ namespace ToDoCalender
 
         private void cmbRoutine_SelectedIndexChanged(object sender, EventArgs e)
         {
+            listViewDates.Items.Clear();
+        }
+
+        private void btnClearTask_Click(object sender, EventArgs e)
+        {
+            txtDescription.Clear();
+            txtTaskName.Clear();
             listViewDates.Items.Clear();
         }
     }

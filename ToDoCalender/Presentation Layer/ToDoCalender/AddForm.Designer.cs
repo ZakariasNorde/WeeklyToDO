@@ -104,6 +104,7 @@
             btnClearTask.TabIndex = 14;
             btnClearTask.Text = "Clear Task";
             btnClearTask.UseVisualStyleBackColor = false;
+            btnClearTask.Click += btnClearTask_Click;
             // 
             // cmbRoutine
             // 
