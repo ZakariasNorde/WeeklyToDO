@@ -28,6 +28,11 @@ namespace DALToDo.Repository
             saveChanges();
         }
 
+        public void updateList(List<TaskToDo> newList)
+        {
+            tasks = newList;
+            saveChanges();
+        }
         public void remove(TaskToDo aTask)
         {
             

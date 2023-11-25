@@ -49,20 +49,22 @@
             listViewMonday = new ListView();
             columnHeader1 = new ColumnHeader();
             listViewTuesday = new ListView();
+            columnHeader2 = new ColumnHeader();
             listViewWednesday = new ListView();
+            columnHeader3 = new ColumnHeader();
             listViewThursday = new ListView();
+            columnHeader4 = new ColumnHeader();
             listViewFriday = new ListView();
+            columnHeader5 = new ColumnHeader();
             listViewSaturday = new ListView();
+            columnHeader6 = new ColumnHeader();
             listViewSunday = new ListView();
+            columnHeader7 = new ColumnHeader();
             pictureBox11 = new PictureBox();
             btnChange = new Button();
             btnAddTask = new Button();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
-            columnHeader5 = new ColumnHeader();
-            columnHeader6 = new ColumnHeader();
-            columnHeader7 = new ColumnHeader();
+            button1 = new Button();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -281,6 +283,11 @@
             listViewTuesday.UseCompatibleStateImageBehavior = false;
             listViewTuesday.View = View.Details;
             // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "To do";
+            columnHeader2.Width = 250;
+            // 
             // listViewWednesday
             // 
             listViewWednesday.BackColor = SystemColors.ScrollBar;
@@ -292,6 +299,12 @@
             listViewWednesday.TabIndex = 20;
             listViewWednesday.UseCompatibleStateImageBehavior = false;
             listViewWednesday.View = View.Details;
+            listViewWednesday.ItemChecked += listViewWednesday_ItemChecked;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "To do";
+            columnHeader3.Width = 250;
             // 
             // listViewThursday
             // 
@@ -305,6 +318,11 @@
             listViewThursday.UseCompatibleStateImageBehavior = false;
             listViewThursday.View = View.Details;
             // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "To do";
+            columnHeader4.Width = 250;
+            // 
             // listViewFriday
             // 
             listViewFriday.BackColor = SystemColors.ScrollBar;
@@ -316,6 +334,11 @@
             listViewFriday.TabIndex = 22;
             listViewFriday.UseCompatibleStateImageBehavior = false;
             listViewFriday.View = View.Details;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "To do";
+            columnHeader5.Width = 250;
             // 
             // listViewSaturday
             // 
@@ -329,6 +352,11 @@
             listViewSaturday.UseCompatibleStateImageBehavior = false;
             listViewSaturday.View = View.Details;
             // 
+            // columnHeader6
+            // 
+            columnHeader6.Text = "To do";
+            columnHeader6.Width = 250;
+            // 
             // listViewSunday
             // 
             listViewSunday.BackColor = SystemColors.ScrollBar;
@@ -340,6 +368,11 @@
             listViewSunday.TabIndex = 24;
             listViewSunday.UseCompatibleStateImageBehavior = false;
             listViewSunday.View = View.Details;
+            // 
+            // columnHeader7
+            // 
+            columnHeader7.Text = "To do";
+            columnHeader7.Width = 250;
             // 
             // pictureBox11
             // 
@@ -370,35 +403,22 @@
             btnAddTask.UseVisualStyleBackColor = false;
             btnAddTask.Click += btnAddTask_Click;
             // 
-            // columnHeader2
+            // button1
             // 
-            columnHeader2.Text = "To do";
-            columnHeader2.Width = 250;
+            button1.Location = new Point(834, 479);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 29;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // columnHeader3
+            // textBox1
             // 
-            columnHeader3.Text = "To do";
-            columnHeader3.Width = 250;
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.Text = "To do";
-            columnHeader4.Width = 250;
-            // 
-            // columnHeader5
-            // 
-            columnHeader5.Text = "To do";
-            columnHeader5.Width = 250;
-            // 
-            // columnHeader6
-            // 
-            columnHeader6.Text = "To do";
-            columnHeader6.Width = 250;
-            // 
-            // columnHeader7
-            // 
-            columnHeader7.Text = "To do";
-            columnHeader7.Width = 250;
+            textBox1.Location = new Point(984, 479);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 27);
+            textBox1.TabIndex = 30;
             // 
             // ToDoCalenderWindow
             // 
@@ -406,6 +426,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(1136, 523);
+            Controls.Add(textBox1);
+            Controls.Add(button1);
             Controls.Add(btnAddTask);
             Controls.Add(btnChange);
             Controls.Add(pictureBox11);
@@ -487,5 +509,7 @@
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader6;
         private ColumnHeader columnHeader7;
+        private Button button1;
+        private TextBox textBox1;
     }
 }
