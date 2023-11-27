@@ -1,4 +1,6 @@
-﻿namespace Models
+﻿using System.Linq;
+using System.Collections.Generic;
+namespace Models
 {
     public class TaskToDo
     {
@@ -36,21 +38,27 @@
         }
 
         public void checkTask(DateTime date)
-        {
-            CheckedDates.Add(date);
+        {   DateTime shortDate = date.Date;
+            CheckedDates.Add(shortDate);
         }
         
-        public bool checkIfDateChecked(DateTime aDate)
+
+        public void unCheckTask(DateTime date)
         {
-            bool dateIsChecked = false;
-            foreach(DateTime dateInList in CheckedDates)
+            
+            int i = 0;
+            bool hittad = false;
+            while(i < CheckedDates.Count && !hittad)
             {
-                if(dateInList == aDate)
+                DateTime aDate = CheckedDates[i];
+                if(aDate == date.Date)
                 {
-                    dateIsChecked = true;
+                    CheckedDates.RemoveAt(i);
+                    hittad = true;
                 }
+                i++;
             }
-            return dateIsChecked;
+            
         }
     }
 }

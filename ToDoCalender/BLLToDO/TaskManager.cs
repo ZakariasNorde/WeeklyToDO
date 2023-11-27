@@ -44,6 +44,26 @@ namespace BLLToDO
             }
             repository.updateList(allTask);
         }
+
+        public void unCheckTask(TaskToDo aTask, DateTime dateToUncheck)
+        {
+            List<TaskToDo> allTask = repository.getAll();
+            int i = 0;
+            bool hittad = false;
+            while (i < allTask.Count && !hittad)
+            {
+                TaskToDo taskToCheck = allTask[i];
+                if (taskToCheck.Description.Equals(aTask.Description) && taskToCheck.Title.Equals(aTask.Title))
+                {   
+
+                    taskToCheck.unCheckTask(dateToUncheck);
+                    allTask[i] = taskToCheck;
+                    hittad = true;
+                }
+                i++;
+            }
+            repository.updateList(allTask);
+        }
         public List<TaskToDo> getAllTask()
         {
             return repository.getAll();

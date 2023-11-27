@@ -15,6 +15,7 @@ namespace ToDoCalender
         public string currentDay;
         private System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
         private TaskManager myTaskManager;
+        
         public ToDoCalenderWindow()
         {
             InitializeComponent();
@@ -138,32 +139,33 @@ namespace ToDoCalender
         }
 
         private void addTaskToView(ListView aListView, TaskToDo taskToAdd, DayOfWeek aDay)
+
         {
+
             ListViewItem aTask = new ListViewItem(taskToAdd.Title);
             aTask.Tag = taskToAdd;
 
             if (isCheckedDay(taskToAdd, aDay))
             {
                 aTask.Checked = true;
-                textBox1.Text = "hejdå";
             }
 
             else
             {
-               
+                aTask.Checked = false;
             }
-
             aListView.Items.Add(aTask);
+            
         }
 
         private bool isCheckedDay(TaskToDo aTask, DayOfWeek weekday)
         {
             DateTime aDate = getDateOfDay(weekday);
+            DateTime shortDate = aDate.Date;
             bool isChecked = false;
 
             foreach (DateTime dateFromList in aTask.CheckedDates)
             {
-                DateTime shortDate = aDate.Date;
                 DateTime shortDateList = dateFromList.Date;
                 if (shortDate == shortDateList)
                 {
@@ -173,22 +175,41 @@ namespace ToDoCalender
             return isChecked;
         }
         private void loadTasks()
-        {
+        {  
             List<TaskToDo> tasksFromFile = myTaskManager.getAllTask();
             foreach (TaskToDo aTask in tasksFromFile)
             {
                 addTask(aTask);
             }
         }
-        //Varför hoppar den hit redan innan programmet startats den gör det automatiskt 
-        //när loadTasks körs men hur kan jag förhindra det
+        //hur får jag uncheck att bli persistent
         private void listViewWednesday_ItemChecked(object sender, ItemCheckedEventArgs e)
-        {
-            ListViewItem checkedItem = e.Item;
-            TaskToDo checkedTask = (TaskToDo)checkedItem.Tag;
-            DateTime checkedDate = getDateOfDay(DayOfWeek.Wednesday);
-            myTaskManager.checkTask(checkedTask, checkedDate);
+        {   //eftersom eventet triggas vid launch så har jag lagt till detta för att 
+            // denna kod inte ska köras vid launch
+            if (e.Item.Focused)
+            {
+                //lägg detta i en metod sen så att alla olika listviews kan återanvända ist
+
+                ListViewItem checkedItem = e.Item;
+                //notera att default värdet som returneras av checked är false.
+                if (checkedItem.Checked)
+                {
+                    TaskToDo checkedTask = (TaskToDo)checkedItem.Tag;
+                    DateTime checkedDate = getDateOfDay(DayOfWeek.Wednesday);
+                    myTaskManager.checkTask(checkedTask, checkedDate);
+                }
+                else
+                {
+                    TaskToDo checkedTask = (TaskToDo)checkedItem.Tag;
+                    DateTime checkedDate = getDateOfDay(DayOfWeek.Wednesday);
+                    myTaskManager.unCheckTask(checkedTask, checkedDate);
+                }
+            }
+
         }
+
+
+           
 
         private DateTime getDateOfDay(DayOfWeek weekday)
         {
@@ -201,9 +222,9 @@ namespace ToDoCalender
         private void button1_Click(object sender, EventArgs e)
         {
             List<TaskToDo> allTasks = myTaskManager.getAllTask();
-            foreach(TaskToDo aTask in allTasks)
+            foreach (TaskToDo aTask in allTasks)
             {
-                if(aTask.CheckedDates.Count == 0)
+                if (aTask.CheckedDates.Count == 0)
                 {
 
                 }
@@ -214,5 +235,7 @@ namespace ToDoCalender
                 }
             }
         }
+
+        
     }
 }
