@@ -293,6 +293,7 @@
             listViewWednesday.BackColor = SystemColors.ScrollBar;
             listViewWednesday.CheckBoxes = true;
             listViewWednesday.Columns.AddRange(new ColumnHeader[] { columnHeader3 });
+            listViewWednesday.FullRowSelect = true;
             listViewWednesday.Location = new Point(336, 84);
             listViewWednesday.Name = "listViewWednesday";
             listViewWednesday.Size = new Size(137, 357);
@@ -300,6 +301,7 @@
             listViewWednesday.UseCompatibleStateImageBehavior = false;
             listViewWednesday.View = View.Details;
             listViewWednesday.ItemChecked += listViewWednesday_ItemChecked;
+            listViewWednesday.SelectedIndexChanged += listViewWednesday_SelectedIndexChanged;
             // 
             // columnHeader3
             // 

@@ -15,7 +15,7 @@ namespace ToDoCalender
         public string currentDay;
         private System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
         private TaskManager myTaskManager;
-        
+
         public ToDoCalenderWindow()
         {
             InitializeComponent();
@@ -65,7 +65,6 @@ namespace ToDoCalender
         {
             AddForm addWindow = new AddForm(this);
             addWindow.Show();
-
         }
 
         public static int getWeek(DateTime aDate)
@@ -155,7 +154,7 @@ namespace ToDoCalender
                 aTask.Checked = false;
             }
             aListView.Items.Add(aTask);
-            
+
         }
 
         private bool isCheckedDay(TaskToDo aTask, DayOfWeek weekday)
@@ -175,7 +174,7 @@ namespace ToDoCalender
             return isChecked;
         }
         private void loadTasks()
-        {  
+        {
             List<TaskToDo> tasksFromFile = myTaskManager.getAllTask();
             foreach (TaskToDo aTask in tasksFromFile)
             {
@@ -209,7 +208,7 @@ namespace ToDoCalender
         }
 
 
-           
+
 
         private DateTime getDateOfDay(DayOfWeek weekday)
         {
@@ -236,6 +235,17 @@ namespace ToDoCalender
             }
         }
 
-        
+        private void listViewWednesday_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListView currentListView = (ListView)sender;
+            if (currentListView.SelectedItems.Count > 0)
+            {
+                ListViewItem chosenItem = currentListView.SelectedItems[0];
+                TaskToDo chosenTask = (TaskToDo)chosenItem.Tag;
+                MoreAboutTask aTaskWindow = new MoreAboutTask(chosenTask);
+                aTaskWindow.TopMost = true;
+                aTaskWindow.Show();
+            }
+        }
     }
 }
