@@ -259,12 +259,16 @@
             listViewMonday.BackColor = SystemColors.ScrollBar;
             listViewMonday.CheckBoxes = true;
             listViewMonday.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
+            listViewMonday.FullRowSelect = true;
             listViewMonday.Location = new Point(16, 86);
             listViewMonday.Name = "listViewMonday";
             listViewMonday.Size = new Size(137, 357);
             listViewMonday.TabIndex = 18;
+            listViewMonday.Tag = "Monday";
             listViewMonday.UseCompatibleStateImageBehavior = false;
             listViewMonday.View = View.Details;
+            listViewMonday.ItemChecked += listView_ItemChecked;
+            listViewMonday.SelectedIndexChanged += listView_SelectedIndexChanged;
             // 
             // columnHeader1
             // 
@@ -276,12 +280,16 @@
             listViewTuesday.BackColor = SystemColors.ScrollBar;
             listViewTuesday.CheckBoxes = true;
             listViewTuesday.Columns.AddRange(new ColumnHeader[] { columnHeader2 });
+            listViewTuesday.FullRowSelect = true;
             listViewTuesday.Location = new Point(174, 84);
             listViewTuesday.Name = "listViewTuesday";
             listViewTuesday.Size = new Size(137, 357);
             listViewTuesday.TabIndex = 19;
+            listViewTuesday.Tag = "Tuesday";
             listViewTuesday.UseCompatibleStateImageBehavior = false;
             listViewTuesday.View = View.Details;
+            listViewTuesday.ItemChecked += listView_ItemChecked;
+            listViewTuesday.SelectedIndexChanged += listView_SelectedIndexChanged;
             // 
             // columnHeader2
             // 
@@ -298,10 +306,11 @@
             listViewWednesday.Name = "listViewWednesday";
             listViewWednesday.Size = new Size(137, 357);
             listViewWednesday.TabIndex = 20;
+            listViewWednesday.Tag = "Wednesday";
             listViewWednesday.UseCompatibleStateImageBehavior = false;
             listViewWednesday.View = View.Details;
-            listViewWednesday.ItemChecked += listViewWednesday_ItemChecked;
-            listViewWednesday.SelectedIndexChanged += listViewWednesday_SelectedIndexChanged;
+            listViewWednesday.ItemChecked += listView_ItemChecked;
+            listViewWednesday.SelectedIndexChanged += listView_SelectedIndexChanged;
             // 
             // columnHeader3
             // 
@@ -313,12 +322,16 @@
             listViewThursday.BackColor = SystemColors.ScrollBar;
             listViewThursday.CheckBoxes = true;
             listViewThursday.Columns.AddRange(new ColumnHeader[] { columnHeader4 });
+            listViewThursday.FullRowSelect = true;
             listViewThursday.Location = new Point(495, 86);
             listViewThursday.Name = "listViewThursday";
             listViewThursday.Size = new Size(137, 355);
             listViewThursday.TabIndex = 21;
+            listViewThursday.Tag = "Thursday";
             listViewThursday.UseCompatibleStateImageBehavior = false;
             listViewThursday.View = View.Details;
+            listViewThursday.ItemChecked += listView_ItemChecked;
+            listViewThursday.SelectedIndexChanged += listView_SelectedIndexChanged;
             // 
             // columnHeader4
             // 
@@ -330,12 +343,16 @@
             listViewFriday.BackColor = SystemColors.ScrollBar;
             listViewFriday.CheckBoxes = true;
             listViewFriday.Columns.AddRange(new ColumnHeader[] { columnHeader5 });
+            listViewFriday.FullRowSelect = true;
             listViewFriday.Location = new Point(654, 84);
             listViewFriday.Name = "listViewFriday";
             listViewFriday.Size = new Size(137, 357);
             listViewFriday.TabIndex = 22;
+            listViewFriday.Tag = "Friday";
             listViewFriday.UseCompatibleStateImageBehavior = false;
             listViewFriday.View = View.Details;
+            listViewFriday.ItemChecked += listView_ItemChecked;
+            listViewFriday.SelectedIndexChanged += listView_SelectedIndexChanged;
             // 
             // columnHeader5
             // 
@@ -347,12 +364,16 @@
             listViewSaturday.BackColor = SystemColors.ScrollBar;
             listViewSaturday.CheckBoxes = true;
             listViewSaturday.Columns.AddRange(new ColumnHeader[] { columnHeader6 });
+            listViewSaturday.FullRowSelect = true;
             listViewSaturday.Location = new Point(813, 86);
             listViewSaturday.Name = "listViewSaturday";
             listViewSaturday.Size = new Size(137, 355);
             listViewSaturday.TabIndex = 23;
+            listViewSaturday.Tag = "Saturday";
             listViewSaturday.UseCompatibleStateImageBehavior = false;
             listViewSaturday.View = View.Details;
+            listViewSaturday.ItemChecked += listView_ItemChecked;
+            listViewSaturday.SelectedIndexChanged += listView_SelectedIndexChanged;
             // 
             // columnHeader6
             // 
@@ -364,12 +385,16 @@
             listViewSunday.BackColor = SystemColors.ScrollBar;
             listViewSunday.CheckBoxes = true;
             listViewSunday.Columns.AddRange(new ColumnHeader[] { columnHeader7 });
+            listViewSunday.FullRowSelect = true;
             listViewSunday.Location = new Point(972, 84);
             listViewSunday.Name = "listViewSunday";
             listViewSunday.Size = new Size(137, 357);
             listViewSunday.TabIndex = 24;
+            listViewSunday.Tag = "Sunday";
             listViewSunday.UseCompatibleStateImageBehavior = false;
             listViewSunday.View = View.Details;
+            listViewSunday.ItemChecked += listView_ItemChecked;
+            listViewSunday.SelectedIndexChanged += listView_SelectedIndexChanged;
             // 
             // columnHeader7
             // 

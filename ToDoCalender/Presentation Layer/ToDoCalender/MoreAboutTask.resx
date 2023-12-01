@@ -117,4 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="txtInfo.Text" xml:space="preserve">
+    <value>If you would like to change the name or the description of the task simply replace the text in the box with the new text you want and press the CHANGE button!
+To remove a date/day where the task should be present simply uncheck the unwanted date/day
+ in the list! To add a new date/day choose the date/day in the calender.
+</value>
+  </data>
 </root>

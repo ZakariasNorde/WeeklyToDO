@@ -28,22 +28,93 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MoreAboutTask));
             taskName = new Label();
+            lblNameOfTask = new Label();
+            lblDesc = new Label();
+            txtDesc = new TextBox();
+            txtName = new TextBox();
+            txtInfo = new TextBox();
+            btnDelete = new Button();
             SuspendLayout();
             // 
             // taskName
             // 
-            taskName.AutoSize = true;
-            taskName.Location = new Point(345, 34);
+            taskName.Location = new Point(0, 0);
             taskName.Name = "taskName";
-            taskName.Size = new Size(0, 20);
-            taskName.TabIndex = 0;
+            taskName.Size = new Size(100, 23);
+            taskName.TabIndex = 2;
+            // 
+            // lblNameOfTask
+            // 
+            lblNameOfTask.AutoSize = true;
+            lblNameOfTask.BackColor = SystemColors.Highlight;
+            lblNameOfTask.Location = new Point(345, 26);
+            lblNameOfTask.Name = "lblNameOfTask";
+            lblNameOfTask.Size = new Size(98, 20);
+            lblNameOfTask.TabIndex = 1;
+            lblNameOfTask.Text = "Name of Task";
+            // 
+            // lblDesc
+            // 
+            lblDesc.AutoSize = true;
+            lblDesc.BackColor = SystemColors.ActiveCaption;
+            lblDesc.Location = new Point(571, 107);
+            lblDesc.Name = "lblDesc";
+            lblDesc.Size = new Size(85, 20);
+            lblDesc.TabIndex = 3;
+            lblDesc.Text = "Description";
+            // 
+            // txtDesc
+            // 
+            txtDesc.Location = new Point(515, 140);
+            txtDesc.Multiline = true;
+            txtDesc.Name = "txtDesc";
+            txtDesc.ScrollBars = ScrollBars.Horizontal;
+            txtDesc.Size = new Size(201, 270);
+            txtDesc.TabIndex = 4;
+            // 
+            // txtName
+            // 
+            txtName.Location = new Point(318, 49);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(153, 27);
+            txtName.TabIndex = 5;
+            // 
+            // txtInfo
+            // 
+            txtInfo.BackColor = Color.Orange;
+            txtInfo.Location = new Point(65, 143);
+            txtInfo.Multiline = true;
+            txtInfo.Name = "txtInfo";
+            txtInfo.ReadOnly = true;
+            txtInfo.Size = new Size(202, 267);
+            txtInfo.TabIndex = 6;
+            txtInfo.Text = resources.GetString("txtInfo.Text");
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.Red;
+            btnDelete.Location = new Point(576, 442);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(94, 29);
+            btnDelete.TabIndex = 7;
+            btnDelete.Text = "DELETE TASK";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // MoreAboutTask
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.AppWorkspace;
+            ClientSize = new Size(863, 542);
+            Controls.Add(btnDelete);
+            Controls.Add(txtInfo);
+            Controls.Add(txtName);
+            Controls.Add(txtDesc);
+            Controls.Add(lblDesc);
+            Controls.Add(lblNameOfTask);
             Controls.Add(taskName);
             Name = "MoreAboutTask";
             Text = "MoreAboutTask";
@@ -54,5 +125,11 @@
         #endregion
 
         private Label taskName;
+        private Label lblNameOfTask;
+        private Label lblDesc;
+        private TextBox txtDesc;
+        private TextBox txtName;
+        private TextBox txtInfo;
+        private Button btnDelete;
     }
 }

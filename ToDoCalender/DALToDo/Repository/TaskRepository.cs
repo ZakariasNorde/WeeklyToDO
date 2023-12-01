@@ -35,7 +35,19 @@ namespace DALToDo.Repository
         }
         public void remove(TaskToDo aTask)
         {
-            
+            bool hittat = false;
+            int i = 0;
+            while(!hittat && i < tasks.Count)
+            {
+                TaskToDo taskToCheck = tasks[i];
+                if(aTask.Title.Equals(taskToCheck.Title) && aTask.Description.Equals(taskToCheck.Description))
+                {
+                    tasks.RemoveAt(i);
+                    hittat = true;
+                }
+                i++;
+            }
+            saveChanges();
         }
 
         public List<TaskToDo> getAll()

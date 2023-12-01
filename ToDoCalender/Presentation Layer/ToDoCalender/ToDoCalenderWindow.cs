@@ -182,25 +182,29 @@ namespace ToDoCalender
             }
         }
         //hur får jag uncheck att bli persistent
-        private void listViewWednesday_ItemChecked(object sender, ItemCheckedEventArgs e)
+        private void listView_ItemChecked(object sender, ItemCheckedEventArgs e)
         {   //eftersom eventet triggas vid launch så har jag lagt till detta för att 
             // denna kod inte ska köras vid launch
+            ListView currentListView = (ListView)sender;
+            string dayAsString = (string)currentListView.Tag;
+            DayOfWeek dayOfWeek = (DayOfWeek)Enum.Parse(typeof(DayOfWeek), dayAsString);
             if (e.Item.Focused)
             {
                 //lägg detta i en metod sen så att alla olika listviews kan återanvända ist
 
                 ListViewItem checkedItem = e.Item;
+
                 //notera att default värdet som returneras av checked är false.
                 if (checkedItem.Checked)
                 {
                     TaskToDo checkedTask = (TaskToDo)checkedItem.Tag;
-                    DateTime checkedDate = getDateOfDay(DayOfWeek.Wednesday);
+                    DateTime checkedDate = getDateOfDay(dayOfWeek);
                     myTaskManager.checkTask(checkedTask, checkedDate);
                 }
                 else
                 {
                     TaskToDo checkedTask = (TaskToDo)checkedItem.Tag;
-                    DateTime checkedDate = getDateOfDay(DayOfWeek.Wednesday);
+                    DateTime checkedDate = getDateOfDay(dayOfWeek);
                     myTaskManager.unCheckTask(checkedTask, checkedDate);
                 }
             }
@@ -235,16 +239,34 @@ namespace ToDoCalender
             }
         }
 
-        private void listViewWednesday_SelectedIndexChanged(object sender, EventArgs e)
+        private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListView currentListView = (ListView)sender;
             if (currentListView.SelectedItems.Count > 0)
             {
                 ListViewItem chosenItem = currentListView.SelectedItems[0];
                 TaskToDo chosenTask = (TaskToDo)chosenItem.Tag;
-                MoreAboutTask aTaskWindow = new MoreAboutTask(chosenTask);
+                MoreAboutTask aTaskWindow = new MoreAboutTask(chosenTask, this);
                 aTaskWindow.TopMost = true;
                 aTaskWindow.Show();
+            }
+        }
+
+        public void DeleteTask(TaskToDo taskToDel)
+        {
+            clearAll();
+            myTaskManager.Delete(taskToDel);
+            loadTasks();
+        }
+
+        public void clearAll()
+        {
+            //hämtar en lista av alla listviews
+            IEnumerable<Control> listViewControls = Controls.OfType<ListView>();
+            List<ListView> listViewList = new List<ListView>(listViewControls.Cast<ListView>());
+            foreach (ListView aListView in listViewList)
+            {
+                aListView.Items.Clear();
             }
         }
     }

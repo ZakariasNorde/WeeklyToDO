@@ -68,5 +68,10 @@ namespace BLLToDO
         {
             return repository.getAll();
         }
+
+        public void Delete(TaskToDo aTask)
+        {
+            repository.remove(aTask);
+        }
     }
 }
