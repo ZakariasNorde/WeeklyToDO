@@ -16,24 +16,103 @@ namespace ToDoCalender
         private System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
         private TaskManager myTaskManager;
         private DateTime currentDate { get; set; }
+        public List<DateTime> datesOfWeek { get; set; }
+        List<TextBox> DayBoxes = new List<TextBox>();
 
         public ToDoCalenderWindow()
         {
             InitializeComponent();
-            //använd kanske timer senare?
-            //myTimer.Interval = 1000;
-            //myTimer.Tick += myTimerTick;
-            //myTimer.Start();
+            myTimer.Interval = 1000;
+            myTimer.Tick += myTimerTick;
+            myTimer.Start();
             myTaskManager = new TaskManager();
+            datesOfWeek = new List<DateTime>();
             currentDate = DateTime.Now;
-            setWeek(currentDate);
+            fillLabelList();
+            setDatesOfWeek();
+            setBoxes(currentDate);
             loadTasks();
         }
 
-        private void setWeek(DateTime date)
+        public void myTimerTick(object sender, EventArgs e)
+        {
+            TimeSpan currentTime = DateTime.Now.TimeOfDay;
+            int hours = currentTime.Hours;
+            int minutes = currentTime.Minutes;
+            int seconds = currentTime.Seconds;
+            //D2 gör att det alltid visas minst 2 siffor alltså 00 ist för 0
+            lblTime.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
+        }
+        private void setBoxes(DateTime date)
         {
             int week = getWeek(date);
             lblCurrentWeek.Text = "Week: " + week;
+            setDatesOfWeek();
+        }
+
+        private void fillLabelList()
+        {
+            List<TextBox> labels = new List<TextBox>();
+            labels.Add(txtMonday);
+            labels.Add(txtTuesday);
+            labels.Add(txtWednesday);
+            labels.Add(txtThursday);
+            labels.Add(txtFriday);
+            labels.Add(txtSaturday);
+            labels.Add(txtSunday);
+            DayBoxes = labels;
+        }
+        public void setDatesOfWeek()
+        {
+            DateTime firstDayOfWeek = currentDate.AddDays((int)DayOfWeek.Monday - (int)currentDate.DayOfWeek);
+            datesOfWeek.Clear();
+            for (int i = 0; i < 7; i++)
+            {
+                datesOfWeek.Add(firstDayOfWeek.AddDays(i));
+            }
+            setLabelDaysOfWeek();
+        }
+
+        public void setLabelDaysOfWeek()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                DateTime aDate = datesOfWeek[i];
+                string theDayNumber = getDayWithSuffix(aDate);
+                string weekDay = getWeekDay(aDate);
+                string month = getMonth(aDate);
+                DayBoxes[i].Text = weekDay + " The " + theDayNumber + " of " + month;
+            }
+        }
+        public static string getDayWithSuffix(DateTime date)
+        {
+            int day = date.Day;
+            string suffix;
+
+            if (day >= 11 && day <= 13)
+            {
+                suffix = "th";
+            }
+            else
+            {
+                switch (day % 10)
+                {
+                    case 1:
+                        suffix = "st";
+                        break;
+                    case 2:
+                        suffix = "nd";
+                        break;
+                    case 3:
+                        suffix = "rd";
+                        break;
+                    default:
+                        suffix = "th";
+                        break;
+                }
+            }
+
+            return $"{day}{suffix}";
         }
 
         private void btnAddTask_Click(object sender, EventArgs e)
@@ -49,10 +128,18 @@ namespace ToDoCalender
             return calendar.GetWeekOfYear(aDate, CalendarWeekRule.FirstFullWeek, DayOfWeek.Monday);
         }
 
-        private string getCurrentDay()
+        public int getYear(DateTime aDate)
         {
-            DateTime today = DateTime.Today;
-            return today.DayOfWeek.ToString();
+            return aDate.Year;
+        }
+        public string getMonth(DateTime aDate)
+        {
+            return aDate.ToString("MMMM");
+        }
+
+        public string getWeekDay(DateTime aDate)
+        {
+            return aDate.DayOfWeek.ToString();
         }
 
         public void addTaskToDay(string weekDay, TaskToDo taskToAdd)
@@ -103,7 +190,7 @@ namespace ToDoCalender
             {
                 foreach (DateTime aDate in aTask.Dates)
                 {
-                    if (getWeek(currentDate) == getWeek(aDate))
+                    if (getWeek(currentDate) == getWeek(aDate) && getYear(currentDate) == getYear(aDate))
                     {
                         string dayOfWeek = aDate.DayOfWeek.ToString();
                         addTaskToDay(dayOfWeek, aTask);
@@ -233,17 +320,25 @@ namespace ToDoCalender
         private void btnPrev_Click(object sender, EventArgs e)
         {
             clearAll();
-            currentDate = currentDate.AddDays(-7);
-            setWeek(currentDate);
+            updateCurrentDay(-7);
+            setBoxes(currentDate);
             loadTasks();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
             clearAll();
-            currentDate = currentDate.AddDays(7);
-            setWeek(currentDate);
+            updateCurrentDay(7);
+            setBoxes(currentDate);
             loadTasks();
         }
+
+        private void updateCurrentDay(int numberToAdd)
+        {
+            currentDate = currentDate.AddDays(numberToAdd);
+            setDatesOfWeek();
+        }
+
+
     }
 }

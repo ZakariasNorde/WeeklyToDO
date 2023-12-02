@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             lblCurrentWeek = new Label();
-            lblSunday = new Label();
-            lblTuesday = new Label();
-            lblSaturday = new Label();
-            lblFriday = new Label();
-            lblThursday = new Label();
-            lblWednesday = new Label();
-            lblMonday = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
@@ -64,6 +57,14 @@
             btnAddTask = new Button();
             btnNext = new Button();
             btnPrev = new Button();
+            txtMonday = new TextBox();
+            txtTuesday = new TextBox();
+            txtWednesday = new TextBox();
+            txtThursday = new TextBox();
+            txtFriday = new TextBox();
+            txtSaturday = new TextBox();
+            txtSunday = new TextBox();
+            lblTime = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -86,77 +87,6 @@
             lblCurrentWeek.Size = new Size(72, 20);
             lblCurrentWeek.TabIndex = 1;
             lblCurrentWeek.Text = "Week.........";
-            // 
-            // lblSunday
-            // 
-            lblSunday.AutoSize = true;
-            lblSunday.BackColor = SystemColors.Info;
-            lblSunday.Location = new Point(1000, 45);
-            lblSunday.Margin = new Padding(0);
-            lblSunday.Name = "lblSunday";
-            lblSunday.Size = new Size(57, 20);
-            lblSunday.TabIndex = 7;
-            lblSunday.Text = "Sunday";
-            // 
-            // lblTuesday
-            // 
-            lblTuesday.AutoSize = true;
-            lblTuesday.BackColor = SystemColors.ActiveCaption;
-            lblTuesday.Location = new Point(207, 43);
-            lblTuesday.Name = "lblTuesday";
-            lblTuesday.Size = new Size(67, 20);
-            lblTuesday.TabIndex = 2;
-            lblTuesday.Text = " Tuesday";
-            // 
-            // lblSaturday
-            // 
-            lblSaturday.AutoSize = true;
-            lblSaturday.BackColor = SystemColors.Info;
-            lblSaturday.Location = new Point(845, 45);
-            lblSaturday.Name = "lblSaturday";
-            lblSaturday.Size = new Size(67, 20);
-            lblSaturday.TabIndex = 6;
-            lblSaturday.Text = "Saturday";
-            // 
-            // lblFriday
-            // 
-            lblFriday.AutoSize = true;
-            lblFriday.BackColor = SystemColors.ActiveCaption;
-            lblFriday.Location = new Point(689, 45);
-            lblFriday.Name = "lblFriday";
-            lblFriday.Size = new Size(49, 20);
-            lblFriday.TabIndex = 5;
-            lblFriday.Text = "Friday";
-            // 
-            // lblThursday
-            // 
-            lblThursday.AutoSize = true;
-            lblThursday.BackColor = SystemColors.ActiveCaption;
-            lblThursday.Location = new Point(533, 43);
-            lblThursday.Name = "lblThursday";
-            lblThursday.Size = new Size(68, 20);
-            lblThursday.TabIndex = 4;
-            lblThursday.Text = "Thursday";
-            // 
-            // lblWednesday
-            // 
-            lblWednesday.AutoSize = true;
-            lblWednesday.BackColor = SystemColors.ActiveCaption;
-            lblWednesday.Location = new Point(361, 45);
-            lblWednesday.Name = "lblWednesday";
-            lblWednesday.Size = new Size(85, 20);
-            lblWednesday.TabIndex = 3;
-            lblWednesday.Text = "Wednesday";
-            // 
-            // lblMonday
-            // 
-            lblMonday.AutoSize = true;
-            lblMonday.BackColor = SystemColors.ActiveCaption;
-            lblMonday.Location = new Point(46, 45);
-            lblMonday.Name = "lblMonday";
-            lblMonday.Size = new Size(63, 20);
-            lblMonday.TabIndex = 1;
-            lblMonday.Text = "Monday";
             // 
             // pictureBox1
             // 
@@ -242,7 +172,7 @@
             // pictureBox10
             // 
             pictureBox10.BackColor = SystemColors.Window;
-            pictureBox10.Location = new Point(0, 68);
+            pictureBox10.Location = new Point(0, 97);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(1125, 10);
             pictureBox10.TabIndex = 17;
@@ -254,9 +184,9 @@
             listViewMonday.CheckBoxes = true;
             listViewMonday.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
             listViewMonday.FullRowSelect = true;
-            listViewMonday.Location = new Point(16, 86);
+            listViewMonday.Location = new Point(16, 113);
             listViewMonday.Name = "listViewMonday";
-            listViewMonday.Size = new Size(137, 357);
+            listViewMonday.Size = new Size(137, 330);
             listViewMonday.TabIndex = 18;
             listViewMonday.Tag = "Monday";
             listViewMonday.UseCompatibleStateImageBehavior = false;
@@ -275,9 +205,9 @@
             listViewTuesday.CheckBoxes = true;
             listViewTuesday.Columns.AddRange(new ColumnHeader[] { columnHeader2 });
             listViewTuesday.FullRowSelect = true;
-            listViewTuesday.Location = new Point(174, 84);
+            listViewTuesday.Location = new Point(174, 113);
             listViewTuesday.Name = "listViewTuesday";
-            listViewTuesday.Size = new Size(137, 357);
+            listViewTuesday.Size = new Size(137, 330);
             listViewTuesday.TabIndex = 19;
             listViewTuesday.Tag = "Tuesday";
             listViewTuesday.UseCompatibleStateImageBehavior = false;
@@ -296,9 +226,9 @@
             listViewWednesday.CheckBoxes = true;
             listViewWednesday.Columns.AddRange(new ColumnHeader[] { columnHeader3 });
             listViewWednesday.FullRowSelect = true;
-            listViewWednesday.Location = new Point(336, 84);
+            listViewWednesday.Location = new Point(336, 113);
             listViewWednesday.Name = "listViewWednesday";
-            listViewWednesday.Size = new Size(137, 357);
+            listViewWednesday.Size = new Size(137, 328);
             listViewWednesday.TabIndex = 20;
             listViewWednesday.Tag = "Wednesday";
             listViewWednesday.UseCompatibleStateImageBehavior = false;
@@ -317,9 +247,9 @@
             listViewThursday.CheckBoxes = true;
             listViewThursday.Columns.AddRange(new ColumnHeader[] { columnHeader4 });
             listViewThursday.FullRowSelect = true;
-            listViewThursday.Location = new Point(495, 86);
+            listViewThursday.Location = new Point(495, 113);
             listViewThursday.Name = "listViewThursday";
-            listViewThursday.Size = new Size(137, 355);
+            listViewThursday.Size = new Size(137, 328);
             listViewThursday.TabIndex = 21;
             listViewThursday.Tag = "Thursday";
             listViewThursday.UseCompatibleStateImageBehavior = false;
@@ -338,9 +268,9 @@
             listViewFriday.CheckBoxes = true;
             listViewFriday.Columns.AddRange(new ColumnHeader[] { columnHeader5 });
             listViewFriday.FullRowSelect = true;
-            listViewFriday.Location = new Point(654, 84);
+            listViewFriday.Location = new Point(654, 113);
             listViewFriday.Name = "listViewFriday";
-            listViewFriday.Size = new Size(137, 357);
+            listViewFriday.Size = new Size(137, 328);
             listViewFriday.TabIndex = 22;
             listViewFriday.Tag = "Friday";
             listViewFriday.UseCompatibleStateImageBehavior = false;
@@ -359,9 +289,9 @@
             listViewSaturday.CheckBoxes = true;
             listViewSaturday.Columns.AddRange(new ColumnHeader[] { columnHeader6 });
             listViewSaturday.FullRowSelect = true;
-            listViewSaturday.Location = new Point(813, 86);
+            listViewSaturday.Location = new Point(813, 113);
             listViewSaturday.Name = "listViewSaturday";
-            listViewSaturday.Size = new Size(137, 355);
+            listViewSaturday.Size = new Size(137, 328);
             listViewSaturday.TabIndex = 23;
             listViewSaturday.Tag = "Saturday";
             listViewSaturday.UseCompatibleStateImageBehavior = false;
@@ -380,9 +310,9 @@
             listViewSunday.CheckBoxes = true;
             listViewSunday.Columns.AddRange(new ColumnHeader[] { columnHeader7 });
             listViewSunday.FullRowSelect = true;
-            listViewSunday.Location = new Point(972, 84);
+            listViewSunday.Location = new Point(972, 113);
             listViewSunday.Name = "listViewSunday";
-            listViewSunday.Size = new Size(137, 357);
+            listViewSunday.Size = new Size(137, 328);
             listViewSunday.TabIndex = 24;
             listViewSunday.Tag = "Sunday";
             listViewSunday.UseCompatibleStateImageBehavior = false;
@@ -437,12 +367,100 @@
             btnPrev.UseVisualStyleBackColor = false;
             btnPrev.Click += btnPrev_Click;
             // 
+            // txtMonday
+            // 
+            txtMonday.BackColor = SystemColors.GradientActiveCaption;
+            txtMonday.Location = new Point(16, 48);
+            txtMonday.Multiline = true;
+            txtMonday.Name = "txtMonday";
+            txtMonday.ReadOnly = true;
+            txtMonday.Size = new Size(131, 45);
+            txtMonday.TabIndex = 33;
+            // 
+            // txtTuesday
+            // 
+            txtTuesday.BackColor = SystemColors.GradientActiveCaption;
+            txtTuesday.Location = new Point(174, 48);
+            txtTuesday.Multiline = true;
+            txtTuesday.Name = "txtTuesday";
+            txtTuesday.ReadOnly = true;
+            txtTuesday.Size = new Size(137, 45);
+            txtTuesday.TabIndex = 34;
+            // 
+            // txtWednesday
+            // 
+            txtWednesday.BackColor = SystemColors.GradientActiveCaption;
+            txtWednesday.Location = new Point(336, 48);
+            txtWednesday.Multiline = true;
+            txtWednesday.Name = "txtWednesday";
+            txtWednesday.ReadOnly = true;
+            txtWednesday.Size = new Size(137, 43);
+            txtWednesday.TabIndex = 35;
+            // 
+            // txtThursday
+            // 
+            txtThursday.BackColor = SystemColors.GradientActiveCaption;
+            txtThursday.Location = new Point(495, 48);
+            txtThursday.Multiline = true;
+            txtThursday.Name = "txtThursday";
+            txtThursday.ReadOnly = true;
+            txtThursday.Size = new Size(137, 43);
+            txtThursday.TabIndex = 36;
+            // 
+            // txtFriday
+            // 
+            txtFriday.BackColor = SystemColors.GradientActiveCaption;
+            txtFriday.Location = new Point(654, 48);
+            txtFriday.Multiline = true;
+            txtFriday.Name = "txtFriday";
+            txtFriday.ReadOnly = true;
+            txtFriday.Size = new Size(137, 43);
+            txtFriday.TabIndex = 37;
+            // 
+            // txtSaturday
+            // 
+            txtSaturday.BackColor = SystemColors.Info;
+            txtSaturday.Location = new Point(813, 48);
+            txtSaturday.Multiline = true;
+            txtSaturday.Name = "txtSaturday";
+            txtSaturday.ReadOnly = true;
+            txtSaturday.Size = new Size(137, 43);
+            txtSaturday.TabIndex = 38;
+            // 
+            // txtSunday
+            // 
+            txtSunday.BackColor = SystemColors.Info;
+            txtSunday.Location = new Point(972, 48);
+            txtSunday.Multiline = true;
+            txtSunday.Name = "txtSunday";
+            txtSunday.ReadOnly = true;
+            txtSunday.Size = new Size(137, 43);
+            txtSunday.TabIndex = 39;
+            // 
+            // lblTime
+            // 
+            lblTime.AutoSize = true;
+            lblTime.BackColor = SystemColors.Highlight;
+            lblTime.Location = new Point(986, 9);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(42, 20);
+            lblTime.TabIndex = 40;
+            lblTime.Text = "Time";
+            // 
             // ToDoCalenderWindow
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(1136, 523);
+            Controls.Add(lblTime);
+            Controls.Add(txtSunday);
+            Controls.Add(txtSaturday);
+            Controls.Add(txtFriday);
+            Controls.Add(txtThursday);
+            Controls.Add(txtWednesday);
+            Controls.Add(txtTuesday);
+            Controls.Add(txtMonday);
             Controls.Add(btnPrev);
             Controls.Add(btnNext);
             Controls.Add(btnAddTask);
@@ -465,13 +483,6 @@
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(lblCurrentWeek);
-            Controls.Add(lblTuesday);
-            Controls.Add(lblWednesday);
-            Controls.Add(lblMonday);
-            Controls.Add(lblThursday);
-            Controls.Add(lblFriday);
-            Controls.Add(lblSunday);
-            Controls.Add(lblSaturday);
             Name = "ToDoCalenderWindow";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -491,13 +502,6 @@
 
         #endregion
         private Label lblCurrentWeek;
-        private Label lblSunday;
-        private Label lblTuesday;
-        private Label lblSaturday;
-        private Label lblFriday;
-        private Label lblThursday;
-        private Label lblWednesday;
-        private Label lblMonday;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
@@ -526,5 +530,13 @@
         private ColumnHeader columnHeader7;
         private Button btnNext;
         private Button btnPrev;
+        private TextBox txtMonday;
+        private TextBox txtTuesday;
+        private TextBox txtWednesday;
+        private TextBox txtThursday;
+        private TextBox txtFriday;
+        private TextBox txtSaturday;
+        private TextBox txtSunday;
+        private Label lblTime;
     }
 }
