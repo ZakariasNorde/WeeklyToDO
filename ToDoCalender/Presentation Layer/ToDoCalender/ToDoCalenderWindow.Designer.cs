@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblCurrentTime = new Label();
+            lblCurrentWeek = new Label();
             lblSunday = new Label();
             lblTuesday = new Label();
             lblSaturday = new Label();
@@ -61,10 +61,9 @@
             listViewSunday = new ListView();
             columnHeader7 = new ColumnHeader();
             pictureBox11 = new PictureBox();
-            btnChange = new Button();
             btnAddTask = new Button();
-            button1 = new Button();
-            textBox1 = new TextBox();
+            btnNext = new Button();
+            btnPrev = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -78,15 +77,15 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
             SuspendLayout();
             // 
-            // lblCurrentTime
+            // lblCurrentWeek
             // 
-            lblCurrentTime.AutoSize = true;
-            lblCurrentTime.BackColor = SystemColors.Highlight;
-            lblCurrentTime.Location = new Point(495, 9);
-            lblCurrentTime.Name = "lblCurrentTime";
-            lblCurrentTime.Size = new Size(72, 20);
-            lblCurrentTime.TabIndex = 1;
-            lblCurrentTime.Text = "Week.........";
+            lblCurrentWeek.AutoSize = true;
+            lblCurrentWeek.BackColor = SystemColors.Highlight;
+            lblCurrentWeek.Location = new Point(495, 9);
+            lblCurrentWeek.Name = "lblCurrentWeek";
+            lblCurrentWeek.Size = new Size(72, 20);
+            lblCurrentWeek.TabIndex = 1;
+            lblCurrentWeek.Text = "Week.........";
             // 
             // lblSunday
             // 
@@ -98,7 +97,6 @@
             lblSunday.Size = new Size(57, 20);
             lblSunday.TabIndex = 7;
             lblSunday.Text = "Sunday";
-            lblSunday.Click += lblSunday_Click;
             // 
             // lblTuesday
             // 
@@ -109,7 +107,6 @@
             lblTuesday.Size = new Size(67, 20);
             lblTuesday.TabIndex = 2;
             lblTuesday.Text = " Tuesday";
-            lblTuesday.Click += lblTuesday_Click;
             // 
             // lblSaturday
             // 
@@ -140,7 +137,6 @@
             lblThursday.Size = new Size(68, 20);
             lblThursday.TabIndex = 4;
             lblThursday.Text = "Thursday";
-            lblThursday.Click += label5_Click;
             // 
             // lblWednesday
             // 
@@ -161,7 +157,6 @@
             lblMonday.Size = new Size(63, 20);
             lblMonday.TabIndex = 1;
             lblMonday.Text = "Monday";
-            lblMonday.Click += label2_Click;
             // 
             // pictureBox1
             // 
@@ -225,7 +220,6 @@
             pictureBox7.Size = new Size(10, 414);
             pictureBox7.TabIndex = 14;
             pictureBox7.TabStop = false;
-            pictureBox7.Click += pictureBox7_Click;
             // 
             // pictureBox8
             // 
@@ -410,19 +404,10 @@
             pictureBox11.TabIndex = 25;
             pictureBox11.TabStop = false;
             // 
-            // btnChange
-            // 
-            btnChange.Location = new Point(554, 482);
-            btnChange.Name = "btnChange";
-            btnChange.Size = new Size(209, 29);
-            btnChange.TabIndex = 27;
-            btnChange.Text = "Change or Delete Task";
-            btnChange.UseVisualStyleBackColor = true;
-            // 
             // btnAddTask
             // 
             btnAddTask.BackColor = Color.Orange;
-            btnAddTask.Location = new Point(336, 482);
+            btnAddTask.Location = new Point(510, 479);
             btnAddTask.Name = "btnAddTask";
             btnAddTask.Size = new Size(122, 29);
             btnAddTask.TabIndex = 28;
@@ -430,22 +415,27 @@
             btnAddTask.UseVisualStyleBackColor = false;
             btnAddTask.Click += btnAddTask_Click;
             // 
-            // button1
+            // btnNext
             // 
-            button1.Location = new Point(834, 479);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 29;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnNext.BackColor = Color.Orange;
+            btnNext.Location = new Point(986, 479);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(123, 29);
+            btnNext.TabIndex = 30;
+            btnNext.Text = "Next Week";
+            btnNext.UseVisualStyleBackColor = false;
+            btnNext.Click += btnNext_Click;
             // 
-            // textBox1
+            // btnPrev
             // 
-            textBox1.Location = new Point(984, 479);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 30;
+            btnPrev.BackColor = Color.Orange;
+            btnPrev.Location = new Point(22, 479);
+            btnPrev.Name = "btnPrev";
+            btnPrev.Size = new Size(131, 29);
+            btnPrev.TabIndex = 31;
+            btnPrev.Text = "Previous Week";
+            btnPrev.UseVisualStyleBackColor = false;
+            btnPrev.Click += btnPrev_Click;
             // 
             // ToDoCalenderWindow
             // 
@@ -453,10 +443,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(1136, 523);
-            Controls.Add(textBox1);
-            Controls.Add(button1);
+            Controls.Add(btnPrev);
+            Controls.Add(btnNext);
             Controls.Add(btnAddTask);
-            Controls.Add(btnChange);
             Controls.Add(pictureBox11);
             Controls.Add(listViewSunday);
             Controls.Add(listViewSaturday);
@@ -475,7 +464,7 @@
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(lblCurrentTime);
+            Controls.Add(lblCurrentWeek);
             Controls.Add(lblTuesday);
             Controls.Add(lblWednesday);
             Controls.Add(lblMonday);
@@ -501,7 +490,7 @@
         }
 
         #endregion
-        private Label lblCurrentTime;
+        private Label lblCurrentWeek;
         private Label lblSunday;
         private Label lblTuesday;
         private Label lblSaturday;
@@ -527,7 +516,6 @@
         private ListView listViewSaturday;
         private ListView listViewSunday;
         private PictureBox pictureBox11;
-        private Button btnChange;
         private Button btnAddTask;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
@@ -536,7 +524,7 @@
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader6;
         private ColumnHeader columnHeader7;
-        private Button button1;
-        private TextBox textBox1;
+        private Button btnNext;
+        private Button btnPrev;
     }
 }

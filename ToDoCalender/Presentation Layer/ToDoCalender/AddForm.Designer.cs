@@ -46,7 +46,7 @@
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(278, 27);
             dateTimePicker1.TabIndex = 5;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            dateTimePicker1.CloseUp += dateTimePicker1_CloseUp;
             // 
             // btnAdd
             // 

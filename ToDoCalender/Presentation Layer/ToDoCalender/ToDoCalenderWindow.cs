@@ -15,51 +15,26 @@ namespace ToDoCalender
         public string currentDay;
         private System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
         private TaskManager myTaskManager;
+        private DateTime currentDate { get; set; }
 
         public ToDoCalenderWindow()
         {
             InitializeComponent();
-            myTimer.Interval = 1000;
-            myTimer.Tick += myTimerTick;
-            myTimer.Start();
+            //använd kanske timer senare?
+            //myTimer.Interval = 1000;
+            //myTimer.Tick += myTimerTick;
+            //myTimer.Start();
             myTaskManager = new TaskManager();
+            currentDate = DateTime.Now;
+            setWeek(currentDate);
             loadTasks();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void setWeek(DateTime date)
         {
-
+            int week = getWeek(date);
+            lblCurrentWeek.Text = "Week: " + week;
         }
-
-        private void myTimerTick(object sender, EventArgs e)
-        {
-            string currentTime = DateTime.Now.ToString();
-            string currentDay = getCurrentDay();
-            lblCurrentTime.Text = $"Week {getWeek(DateTime.Now)} {currentDay} {currentTime}";
-
-        }
-
-        private void lblTuesday_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblSunday_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void btnAddTask_Click(object sender, EventArgs e)
         {
@@ -128,7 +103,7 @@ namespace ToDoCalender
             {
                 foreach (DateTime aDate in aTask.Dates)
                 {
-                    if (getWeek(DateTime.Now) == getWeek(aDate))
+                    if (getWeek(currentDate) == getWeek(aDate))
                     {
                         string dayOfWeek = aDate.DayOfWeek.ToString();
                         addTaskToDay(dayOfWeek, aTask);
@@ -222,22 +197,7 @@ namespace ToDoCalender
             return result;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            List<TaskToDo> allTasks = myTaskManager.getAllTask();
-            foreach (TaskToDo aTask in allTasks)
-            {
-                if (aTask.CheckedDates.Count == 0)
-                {
 
-                }
-                else
-                {
-                    string aDate = aTask.CheckedDates[0].ToString();
-                    textBox1.Text = aDate;
-                }
-            }
-        }
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -268,6 +228,22 @@ namespace ToDoCalender
             {
                 aListView.Items.Clear();
             }
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            clearAll();
+            currentDate = currentDate.AddDays(-7);
+            setWeek(currentDate);
+            loadTasks();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            clearAll();
+            currentDate = currentDate.AddDays(7);
+            setWeek(currentDate);
+            loadTasks();
         }
     }
 }

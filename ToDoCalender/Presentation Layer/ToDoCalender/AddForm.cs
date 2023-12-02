@@ -44,7 +44,7 @@ namespace ToDoCalender
             return routine;
         }
 
-        
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //lägg till validering så att user har valt minst 1 datum först
@@ -82,8 +82,8 @@ namespace ToDoCalender
                         foreach (ListViewItem anItem in listViewDates.Items)
                         {
                             string[] dateSplits = anItem.Text.Split("-");
-                            List<int> datesSplitsAsInt = new List<int>();    
-                            
+                            List<int> datesSplitsAsInt = new List<int>();
+
                             foreach (string aPart in dateSplits)
                             {
                                 int intPart = int.Parse(aPart);
@@ -99,7 +99,7 @@ namespace ToDoCalender
 
                     }
 
-                    
+
 
 
                 }
@@ -110,7 +110,21 @@ namespace ToDoCalender
             }
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+       
+
+        private void cmbRoutine_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listViewDates.Items.Clear();
+        }
+
+        private void btnClearTask_Click(object sender, EventArgs e)
+        {
+            txtDescription.Clear();
+            txtTaskName.Clear();
+            listViewDates.Items.Clear();
+        }
+
+        private void dateTimePicker1_CloseUp(object sender, EventArgs e)
         {
             if (checkRoutine())
             {
@@ -126,18 +140,6 @@ namespace ToDoCalender
                 ListViewItem dateItem = new ListViewItem(dateString);
                 listViewDates.Items.Add(dateItem);
             }
-        }
-
-        private void cmbRoutine_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            listViewDates.Items.Clear();
-        }
-
-        private void btnClearTask_Click(object sender, EventArgs e)
-        {
-            txtDescription.Clear();
-            txtTaskName.Clear();
-            listViewDates.Items.Clear();
         }
     }
 
