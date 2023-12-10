@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MoreAboutTask));
             taskName = new Label();
             lblNameOfTask = new Label();
             lblDesc = new Label();
             txtDesc = new TextBox();
             txtName = new TextBox();
-            txtInfo = new TextBox();
             btnDelete = new Button();
             SuspendLayout();
             // 
@@ -49,7 +47,7 @@
             // 
             lblNameOfTask.AutoSize = true;
             lblNameOfTask.BackColor = SystemColors.Highlight;
-            lblNameOfTask.Location = new Point(345, 26);
+            lblNameOfTask.Location = new Point(252, 26);
             lblNameOfTask.Name = "lblNameOfTask";
             lblNameOfTask.Size = new Size(98, 20);
             lblNameOfTask.TabIndex = 1;
@@ -59,7 +57,7 @@
             // 
             lblDesc.AutoSize = true;
             lblDesc.BackColor = SystemColors.ActiveCaption;
-            lblDesc.Location = new Point(571, 107);
+            lblDesc.Location = new Point(252, 114);
             lblDesc.Name = "lblDesc";
             lblDesc.Size = new Size(85, 20);
             lblDesc.TabIndex = 3;
@@ -67,7 +65,7 @@
             // 
             // txtDesc
             // 
-            txtDesc.Location = new Point(515, 140);
+            txtDesc.Location = new Point(202, 137);
             txtDesc.Multiline = true;
             txtDesc.Name = "txtDesc";
             txtDesc.ScrollBars = ScrollBars.Horizontal;
@@ -76,26 +74,16 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(318, 49);
+            txtName.Location = new Point(220, 49);
+            txtName.Multiline = true;
             txtName.Name = "txtName";
-            txtName.Size = new Size(153, 27);
+            txtName.Size = new Size(153, 46);
             txtName.TabIndex = 5;
-            // 
-            // txtInfo
-            // 
-            txtInfo.BackColor = Color.Orange;
-            txtInfo.Location = new Point(65, 143);
-            txtInfo.Multiline = true;
-            txtInfo.Name = "txtInfo";
-            txtInfo.ReadOnly = true;
-            txtInfo.Size = new Size(202, 267);
-            txtInfo.TabIndex = 6;
-            txtInfo.Text = resources.GetString("txtInfo.Text");
             // 
             // btnDelete
             // 
             btnDelete.BackColor = Color.Red;
-            btnDelete.Location = new Point(576, 442);
+            btnDelete.Location = new Point(252, 452);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(94, 29);
             btnDelete.TabIndex = 7;
@@ -108,9 +96,8 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(863, 542);
+            ClientSize = new Size(621, 542);
             Controls.Add(btnDelete);
-            Controls.Add(txtInfo);
             Controls.Add(txtName);
             Controls.Add(txtDesc);
             Controls.Add(lblDesc);
@@ -129,7 +116,6 @@
         private Label lblDesc;
         private TextBox txtDesc;
         private TextBox txtName;
-        private TextBox txtInfo;
         private Button btnDelete;
     }
 }

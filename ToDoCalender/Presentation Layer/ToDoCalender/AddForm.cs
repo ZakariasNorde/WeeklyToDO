@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
-using AddForm;
 using BLLToDO;
 using Models;
 
@@ -47,23 +46,30 @@ namespace ToDoCalender
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //lägg till validering så att user har valt minst 1 datum först
-            //lägg till validering så att user har valt task typ först
-            //lägg till så att när du lagt valt routine eller inte och sedan ändrar efteråt så nollställs listviewn så att 
-            //den inte innehåller både datum i datum form och veckodagar som strings då kraschar det i TaskToDo konstruktorn.
-            if (Validation.validateTxt(txtTaskName) && Validation.validateTxt(txtDescription))
+          
+            if (!InputValidation.validateTxt(txtTaskName) || !InputValidation.validateTxt(txtDescription))
             {
+                MessageBox.Show("Please fill all boxes first");
+                return;
+            }
 
+            if (InputValidation.listViewIsEmpty(listViewDates))
+            {
+                MessageBox.Show("Task must be assigned to ateast 1 date/day");
+                return;
+            }
+
+            if (cmbRoutine.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please choose task type first");
+                return;
+            }
+            
                 string taskName = txtTaskName.Text;
                 string taskDesc = txtDescription.Text;
 
-                if (cmbRoutine.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Please choose task type first");
-                }
-                else
-                {
-                    if (checkRoutine())
+                
+                if (checkRoutine())
                     {
                         List<string> daysAsString = new List<string>();
                         foreach (ListViewItem anItem in listViewDates.Items)
@@ -73,6 +79,7 @@ namespace ToDoCalender
 
                         TaskToDo createdTask = myTaskManager.createTask(taskName, taskDesc, daysAsString);
                         calenderWindow.addTask(createdTask);
+                        clearAll();
 
                     }
 
@@ -96,18 +103,9 @@ namespace ToDoCalender
 
                         TaskToDo createdTask = myTaskManager.createTask(taskName, taskDesc, dates);
                         calenderWindow.addTask(createdTask);
+                        clearAll();
 
                     }
-
-
-
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please fill all textboxes first");
-            }
         }
 
        
@@ -118,6 +116,11 @@ namespace ToDoCalender
         }
 
         private void btnClearTask_Click(object sender, EventArgs e)
+        {
+            clearAll();
+        }
+
+        private void clearAll()
         {
             txtDescription.Clear();
             txtTaskName.Clear();
