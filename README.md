@@ -1,6 +1,6 @@
 # Short description
 This is a windows forms project created in visual studio 2022 with c#. 
-The project follows a three layer architecture and saves the changes a user has made in an xml file making the program persistent.
+The project follows a tier layer architecture and saves the changes a user has made in an xml file making the program persistent.
 # Features
 This application is a weekly calender which lets you add tasks which then becomes visible in the calender.
 The tasks can be added as weekly tasks which means they are added to that day of the week every week or they can be added to specific days only.
