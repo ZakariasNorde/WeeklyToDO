@@ -14,136 +14,158 @@ using Models;
 namespace ToDoCalender
 {
 
-    public partial class AddForm : Form
-    {
-        private TaskManager myTaskManager;
-        public ToDoCalenderWindow calenderWindow;
-        public AddForm(object sender)
-        {
-            InitializeComponent();
-            myTaskManager = new TaskManager();
-            calenderWindow = (ToDoCalenderWindow)sender;
-        }
-
-        public bool checkRoutine()
-        {
-            string chosenType = cmbRoutine.Text;
-            bool routine = false;
-
-            if (chosenType.Contains("only"))
-            {
-                routine = false;
-            }
-
-            else if (chosenType.Contains("every"))
-            {
-                routine = true;
-            }
-
-            return routine;
-        }
+	public partial class AddForm : Form
+	{
+		private TaskManager myTaskManager;
+		public ToDoCalenderWindow calenderWindow;
+		public AddForm(object sender)
+		{
+			InitializeComponent();
+			myTaskManager = new TaskManager();
+			calenderWindow = (ToDoCalenderWindow)sender;
+		}
+		private void btnAdd_Click(object sender, EventArgs e)
+		{
+			TaskToDo createdTask;
+			if (!ValidateBeforeAdd())
+			{
+				return;
+			}
+			string taskName = txtTaskName.Text;
+			string taskDesc = txtDescription.Text;
 
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-          
-            if (!InputValidation.validateTxt(txtTaskName) || !InputValidation.validateTxt(txtDescription))
-            {
-                MessageBox.Show("Please fill all boxes first");
-                return;
-            }
+			if (checkRoutine())
+			{
+				List<string> weekDays = GetWeekDays();
+				createdTask = myTaskManager.createTask(taskName, taskDesc, weekDays);
+			}
 
-            if (InputValidation.listViewIsEmpty(listViewDates))
-            {
-                MessageBox.Show("Task must be assigned to ateast 1 date/day");
-                return;
-            }
+			else
+			{
+				List<DateTime> selectedDates = GetDates();
+				if (selectedDates == null)
+				{
+					MessageBox.Show("Something is wrong with the date format");
+					return;
+				}
+				createdTask = myTaskManager.createTask(taskName, taskDesc, selectedDates);
 
-            if (cmbRoutine.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please choose task type first");
-                return;
-            }
-            
-                string taskName = txtTaskName.Text;
-                string taskDesc = txtDescription.Text;
+			}
+			clearAll();
+			calenderWindow.addTask(createdTask);
+		}
 
-                
-                if (checkRoutine())
-                    {
-                        List<string> daysAsString = new List<string>();
-                        foreach (ListViewItem anItem in listViewDates.Items)
-                        {
-                            daysAsString.Add(anItem.Text);
-                        }
+		private List<string> GetWeekDays()
+		{
+			List<string> daysAsString = new List<string>();
+			foreach (ListViewItem anItem in listViewDates.Items)
+			{
+				daysAsString.Add(anItem.Tag.ToString());
+			}
+			return daysAsString;
+		}
 
-                        TaskToDo createdTask = myTaskManager.createTask(taskName, taskDesc, daysAsString);
-                        calenderWindow.addTask(createdTask);
-                        clearAll();
+		private List<DateTime> GetDates()
+		{
+			List<DateTime> dates = new List<DateTime>();
 
-                    }
+			foreach (ListViewItem anItem in listViewDates.Items)
+			{
+				DateTime aDate;
+				bool success = DateTime.TryParse(anItem.Text, out aDate);
+				if (success)
+				{
+					dates.Add(aDate);
+				}
+				else
+				{
+					return null;
+				}
+			}
+			return dates;
+		}
 
-                    else
-                    {
-                        List<DateTime> dates = new List<DateTime>();
-                        foreach (ListViewItem anItem in listViewDates.Items)
-                        {
-                            string[] dateSplits = anItem.Text.Split("-");
-                            List<int> datesSplitsAsInt = new List<int>();
+		public bool checkRoutine()
+		{
+			string chosenType = cmbRoutine.Text;
+			bool routine = false;
 
-                            foreach (string aPart in dateSplits)
-                            {
-                                int intPart = int.Parse(aPart);
-                                datesSplitsAsInt.Add(intPart);
-                            }
+			if (chosenType.Contains("only"))
+			{
+				routine = false;
+			}
 
-                            DateTime aDate = new DateTime(datesSplitsAsInt[0], datesSplitsAsInt[1], datesSplitsAsInt[2]);
-                            dates.Add(aDate);
-                        }
+			else if (chosenType.Contains("every"))
+			{
+				routine = true;
+			}
 
-                        TaskToDo createdTask = myTaskManager.createTask(taskName, taskDesc, dates);
-                        calenderWindow.addTask(createdTask);
-                        clearAll();
+			return routine;
+		}
+		private bool ValidateBeforeAdd()
+		{
+			if (!InputValidation.validateTxt(txtTaskName) || !InputValidation.validateTxt(txtDescription))
+			{
+				MessageBox.Show("Please fill all boxes first");
+				return false;
+			}
 
-                    }
-        }
+			if (InputValidation.listViewIsEmpty(listViewDates))
+			{
+				MessageBox.Show("Task must be assigned to ateast 1 date/day");
+				return false;
+			}
 
-       
+			if (cmbRoutine.SelectedIndex == -1)
+			{
+				MessageBox.Show("Please choose task type first");
+				return false;
+			}
+			return true;
+		}
 
-        private void cmbRoutine_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            listViewDates.Items.Clear();
-        }
 
-        private void btnClearTask_Click(object sender, EventArgs e)
-        {
-            clearAll();
-        }
+		private void cmbRoutine_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			listViewDates.Items.Clear();
+		}
 
-        private void clearAll()
-        {
-            txtDescription.Clear();
-            txtTaskName.Clear();
-            listViewDates.Items.Clear();
-        }
+		private void btnClearTask_Click(object sender, EventArgs e)
+		{
+			clearAll();
+		}
 
-        private void dateTimePicker1_CloseUp(object sender, EventArgs e)
-        {
-            if (checkRoutine())
-            {
-                DateTime chosenDay = dateTimePicker1.Value;
-                string dayOfWeek = chosenDay.DayOfWeek.ToString();
-                ListViewItem dayItem = new ListViewItem(dayOfWeek);
-                listViewDates.Items.Add(dayItem);
-            }
-            else
-            {
-                DateTime chosenDate = dateTimePicker1.Value;
-                string dateString = chosenDate.ToString("yyyy-MM-dd");
-                ListViewItem dateItem = new ListViewItem(dateString);
-                listViewDates.Items.Add(dateItem);
-            }
-        }
-    }
+		private void clearAll()
+		{
+			txtDescription.Clear();
+			txtTaskName.Clear();
+			listViewDates.Items.Clear();
+		}
+
+		private void dateTimePicker1_CloseUp(object sender, EventArgs e)
+		{
+			if (checkRoutine())
+			{
+				DateTime chosenDay = dateTimePicker1.Value;
+				string dayOfWeek = chosenDay.DayOfWeek.ToString();
+				ListViewItem dayItem = new ListViewItem("All " + dayOfWeek + "s");
+				dayItem.Tag = dayOfWeek;
+				listViewDates.Items.Add(dayItem);
+			}
+			else
+			{
+				DateTime chosenDate = dateTimePicker1.Value;
+				string dateString = chosenDate.ToString("yyyy-MM-dd");
+				ListViewItem dateItem = new ListViewItem(dateString);
+				listViewDates.Items.Add(dateItem);
+			}
+		}
+
+		private void clearDates_Click(object sender, EventArgs e)
+		{
+			listViewDates.Items.Clear();
+		}
+	}
 
 }
