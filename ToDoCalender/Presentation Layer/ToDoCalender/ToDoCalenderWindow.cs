@@ -260,7 +260,7 @@ namespace ToDoCalender
                 if (checkedItem.Checked)
                 {
                     TaskToDo checkedTask = (TaskToDo)checkedItem.Tag;
-                    DateTime checkedDate = getDateOfDay(dayOfWeek);
+                    DateTime checkedDate = getDateOfDay(dayOfWeek); 
                     myTaskManager.checkTask(checkedTask, checkedDate);
                 }
                 else
@@ -278,9 +278,8 @@ namespace ToDoCalender
 
         private DateTime getDateOfDay(DayOfWeek weekday)
         {
-            DateTime today = DateTime.Now;
-            int daysUntilTargetDay = ((int)weekday - (int)today.DayOfWeek);
-            DateTime result = today.AddDays(daysUntilTargetDay);
+            int daysUntilTargetDay = ((int)weekday - (int)currentDate.DayOfWeek);
+            DateTime result = currentDate.AddDays(daysUntilTargetDay);
             return result;
         }
 
